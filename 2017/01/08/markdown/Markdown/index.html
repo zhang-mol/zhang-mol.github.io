@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/m.svg?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/m-32x32.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/m-16x16.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/m.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Markdown," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="molb's Notes" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="为了打造完个人博客，特意去学习markdown语法，写这个主要是方便自己查看,来个提醒作用!MarkDown历史发展,特点之类的就不做介绍了,花个把钟头就可以上手了。 Markdown编辑器国内Markdown编辑器很多,针对不同的系统开发了不同的编辑器,而且各大编辑器都没有统一的规定,会存在一些区别.为避免打广告和引发辩驳大战,不透露本人使用的IDE.Markdown支持部分html标签,为了让">
+<meta name="keywords" content="Markdown">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Markdown">
+<meta property="og:url" content="http://molb.me/2017/01/08/markdown/Markdown/index.html">
+<meta property="og:site_name" content="molb&#39;s Notes">
+<meta property="og:description" content="为了打造完个人博客，特意去学习markdown语法，写这个主要是方便自己查看,来个提醒作用!MarkDown历史发展,特点之类的就不做介绍了,花个把钟头就可以上手了。 Markdown编辑器国内Markdown编辑器很多,针对不同的系统开发了不同的编辑器,而且各大编辑器都没有统一的规定,会存在一些区别.为避免打广告和引发辩驳大战,不透露本人使用的IDE.Markdown支持部分html标签,为了让">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://molb.me/images/md.jpg">
+<meta property="og:image" content="http://molb.me/images/table.png">
+<meta property="og:updated_time" content="2018-07-24T03:11:43.243Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Markdown">
+<meta name="twitter:description" content="为了打造完个人博客，特意去学习markdown语法，写这个主要是方便自己查看,来个提醒作用!MarkDown历史发展,特点之类的就不做介绍了,花个把钟头就可以上手了。 Markdown编辑器国内Markdown编辑器很多,针对不同的系统开发了不同的编辑器,而且各大编辑器都没有统一的规定,会存在一些区别.为避免打广告和引发辩驳大战,不透露本人使用的IDE.Markdown支持部分html标签,为了让">
+<meta name="twitter:image" content="http://molb.me/images/md.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: 'CCA5W16ZX9',
+      apiKey: '596be3161658f0c0d40b79b58d7b4996',
+      indexName: 'blog',
+      hits: {"per_page":6},
+      labels: {"input_placeholder":"搜索","hits_empty":"我们没有找到任何搜索结果: ${query}","hits_stats":"找到约 ${hits} 条结果，用时 ${time}ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://molb.me/2017/01/08/markdown/Markdown/"/>
+
+
+
+
+
+  <title>Markdown | molb's Notes</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?b9e8c13baad34736ed768e6d653c6a51";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">molb's Notes</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Growth notes</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://molb.me/2017/01/08/markdown/Markdown/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZhangHeng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/headPortrait.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="molb's Notes">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Markdown</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-01-08T00:00:00+08:00">
+                2017-01-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Markdown/" itemprop="url" rel="index">
+                    <span itemprop="name">Markdown</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-eye"></i> 阅读次数
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                <span title="字数统计">
+                  1,150 (字)
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                <span title="阅读时长">
+                  4 (分)
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>为了打造完个人博客，特意去学习markdown语法，写这个主要是方便自己查看,来个提醒作用!MarkDown历史发展,特点之类的就不做介绍了,花个把钟头就可以上手了。</p>
+<h1 id="Markdown编辑器"><a href="#Markdown编辑器" class="headerlink" title="Markdown编辑器"></a>Markdown编辑器</h1><p>国内Markdown编辑器很多,针对不同的系统开发了不同的编辑器,而且各大编辑器都没有统一的规定,会存在一些区别.为避免打广告和引发辩驳大战,不透露本人使用的IDE.Markdown支持部分html标签,为了让文本更形象,更简洁.</p>
+<h1 id="Markdown中常用的Html标签"><a href="#Markdown中常用的Html标签" class="headerlink" title="Markdown中常用的Html标签"></a>Markdown中常用的Html标签</h1><p>以下常用标签均通过测试<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;font&gt;&lt;/font&gt; 可以自定义颜色、背景、大小、文字类型</span><br><span class="line">&lt;br&gt; 换行</span><br><span class="line">&lt;mark&gt;&lt;/mark&gt; 标记</span><br><span class="line">&lt;big&gt;&lt;/big&gt; 文字变大</span><br><span class="line">&lt;small&gt;&lt;/small&gt; 文字变小</span><br><span class="line">&lt;s&gt;&lt;/s&gt; 删除线</span><br><span class="line">&lt;u&gt;&lt;/u&gt; 下划线</span><br><span class="line">&lt;sup&gt;&lt;/sup&gt; 文字上标</span><br><span class="line">&lt;sub&gt;&lt;/sub&gt; 文字下标</span><br><span class="line">&lt;p align=<span class="string">"right"</span>&gt;&lt;/p&gt; 右对齐</span><br><span class="line">&lt;p align=<span class="string">"center"</span>&gt;&lt;/p&gt; 文字居中</span><br><span class="line">&lt;p align=<span class="string">"center"</span>&gt;&lt;img src=<span class="string">""</span>&gt;&lt;/p&gt; 图片居中</span><br></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<h1 id="Markdown语法简介"><a href="#Markdown语法简介" class="headerlink" title="Markdown语法简介"></a>Markdown语法简介</h1><h4 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 一级标题 h1    This is an H1 第二种表示法(适用h1标题)</span><br><span class="line">                ==============</span><br><span class="line">## 二级标题 h2   This is an H2 第二种表示法(适用h2标题)</span><br><span class="line">                -------------</span><br><span class="line">### 三级标题 h3</span><br><span class="line">###### 六级标题 h6</span><br></pre></td></tr></table></figure>
+<p>此外在使用#表示时,为了美观可以在标题后添加#,但是几级标题由<font style="color:red">前面的#个数决定</font><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 一级标题 h1 #</span><br><span class="line">## 二级标题 h2 ####</span><br></pre></td></tr></table></figure></p>
+<h4 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h4><p>区块引用使用 <font style="color:red;border:1px solid #ddd">&gt;</font>;若想结束引用,在末尾添加空白行即可.</p>
+<blockquote>
+<p>一个人至少有一个梦想,有一个理由去坚强.心若没有栖息的地方,到哪里都是在流浪.</p>
+</blockquote>
+<p>区块引用可以嵌套,一个 <font style="color:red;border:1px solid #ddd">&gt;</font>为一层,两个<font style="color:red;border:1px solid #ddd">&gt;&gt;</font>为两层</p>
+<blockquote>
+<p>三毛</p>
+<blockquote>
+<p>岁月极美,在于它必然的流逝.春花、秋月、夏日、冬雪.</p>
+</blockquote>
+</blockquote>
+<p>区块引用可以使用其他的Markdown语法,比如:标题、代码块、列表等.</p>
+<h4 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h4><p>Markdown支持无序列表和有序列表</p>
+<p><font style="color:#fff;background:#000">无序列表可以使用星号(*)、加号(+)、减号(-)</font><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">* 如果有来生，</span><br><span class="line">* 要做一颗书，</span><br><span class="line">* 站成永恒，</span><br><span class="line">* 没有悲欢的姿势。</span><br><span class="line">+ 一半在土里安详，</span><br><span class="line">+ 一半在风里飞扬，</span><br><span class="line">+ 一半洒落阴凉，</span><br><span class="line">+ 一半沐浴阳光。</span><br><span class="line">- 非常沉默非常骄傲，</span><br><span class="line">- 从不依靠，从不寻找。</span><br></pre></td></tr></table></figure></p>
+<p>效果如下:</p>
+<ul>
+<li>如果有来生，</li>
+<li>要做一颗书，</li>
+<li>站成永恒，</li>
+<li>没有悲欢的姿势。</li>
+</ul>
+<ul>
+<li>一半在土里安详，</li>
+<li>一半在风里飞扬，</li>
+<li>一半洒落阴凉，</li>
+<li>一半沐浴阳光。</li>
+</ul>
+<ul>
+<li>非常沉默非常骄傲，</li>
+<li>从不依靠，从不寻找。</li>
+</ul>
+<p><font style="color:#fff;background:#000">有序列表则是数字加一个英文句点(数字不会影响输出的html结果)</font><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">1. 我来不及认真年轻</span><br><span class="line">2. 待明白过来时</span><br><span class="line">3. 只能选择认真地老去</span><br><span class="line"></span><br><span class="line">5. 或许，我们终究会有一天</span><br><span class="line">1. 牵着别人的手</span><br><span class="line">3. 遗忘曾经的他</span><br></pre></td></tr></table></figure></p>
+<p>效果如下:</p>
+<ol>
+<li>我来不及认真年轻</li>
+<li>待明白过来时</li>
+<li>只能选择认真地老去</li>
+<li>或许，我们终究会有一天</li>
+<li>牵着别人的手</li>
+<li>遗忘曾经的他</li>
+</ol>
+<p><font style="color:#fff;background:#000">列表项目可以包含空行、段落、引用、代码块</font></p>
+<ul>
+<li>包含空行,会为元素添加p标签</li>
+<li>包含段落、引用时需要缩进(4个空格)</li>
+<li>包含代码块时需要两次缩进(8个空格)</li>
+</ul>
+<h4 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h4><p>代码块的表示方法很简单,只需要两个<font style="color:red;border:1px solid #ddd">```</font>包裹就可以了<br>效果如下:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;p&gt;hello world&lt;/p&gt;</span><br></pre></td></tr></table></figure></p>
+<h4 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h4><p>Markdown 支持两种形式的链接语法： 行内式和参考式两种形式<br>具体参考<a href="https://www.appinn.com/markdown/#backslash" target="_blank" rel="noopener">Markdown中文手册</a>,最常用的方法为图片和链接.区别只有一个<font style="color:red;border:1px solid #ddd">!</font><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">图片:![图片描述即alt](链接的地址)  栗子:![图片](路径)</span><br><span class="line">在路径后面添加 &quot;相关title文字&quot;注意前面有个空格</span><br><span class="line">链接:[文本内容](链接的地址) 栗子:上面已经有了</span><br></pre></td></tr></table></figure></p>
+<p><img src="/images/md.jpg" alt="图片" title="markdown"></p>
+<h4 id="文本样式"><a href="#文本样式" class="headerlink" title="文本样式"></a>文本样式</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">*斜体*</span><br><span class="line">**加粗**</span><br><span class="line">~~删除线~~</span><br><span class="line">`底纹`</span><br></pre></td></tr></table></figure>
+<p>效果如下:<br><em>斜体</em><br><strong>加粗</strong><br><del>删除线</del><br><code>底纹</code></p>
+<h4 id="水平线"><a href="#水平线" class="headerlink" title="水平线"></a>水平线</h4><p>三个「 - 」或「 * 」都可以画出一条水平分割线</p>
+<hr>
+<hr>
+<h4 id="反斜杠"><a href="#反斜杠" class="headerlink" title="反斜杠"></a>反斜杠</h4><p>Markdown 支持以下这些符号前面加上反斜杠来帮助插入普通的符号<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">\   反斜线</span><br><span class="line">`   反引号</span><br><span class="line">*   星号</span><br><span class="line">_   底线</span><br><span class="line">&#123;&#125;  花括号</span><br><span class="line">[]  方括号</span><br><span class="line">()  括弧</span><br><span class="line">#   井字号</span><br><span class="line">+   加号</span><br><span class="line">-   减号</span><br><span class="line">.   英文句点</span><br><span class="line">!   惊叹号</span><br></pre></td></tr></table></figure></p>
+<h4 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h4><p>markdown表格必须的画出来,较为麻烦<br><img src="/images/table.png" alt="表格" title="表格"></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Markdown/" rel="tag"># Markdown</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/12/21/blog/blog/" rel="next" title="Person Blog">
+                <i class="fa fa-chevron-left"></i> Person Blog
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/01/15/travel/云南之行-1/" rel="prev" title="彩云之南-香格里拉">
+                彩云之南-香格里拉 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/headPortrait.jpg"
+                alt="ZhangHeng" />
+            
+              <p class="site-author-name" itemprop="name">ZhangHeng</p>
+              <p class="site-description motion-element" itemprop="description">言念君子 温其如玉</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">38</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/zhang-mol" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://twitter.com/zhang-mol" target="_blank" title="Twitter">
+                      
+                        <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://weibo.com/p/1005051921146507/home?from=page_100505&mod=TAB&is_all=1#place" target="_blank" title="Weibo">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://gitee.com/zhang-mol" target="_blank" title="Gitee">
+                      
+                        <i class="fa fa-fw fa-google"></i>Gitee</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Markdown编辑器"><span class="nav-text">Markdown编辑器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Markdown中常用的Html标签"><span class="nav-text">Markdown中常用的Html标签</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Markdown语法简介"><span class="nav-text">Markdown语法简介</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#标题"><span class="nav-text">标题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#引用"><span class="nav-text">引用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#列表"><span class="nav-text">列表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码块"><span class="nav-text">代码块</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#链接"><span class="nav-text">链接</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#文本样式"><span class="nav-text">文本样式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#水平线"><span class="nav-text">水平线</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#反斜杠"><span class="nav-text">反斜杠</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#表格"><span class="nav-text">表格</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2016 &ndash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZhangHeng</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 访问人数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 访问次数
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.4"></script>
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

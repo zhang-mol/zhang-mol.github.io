@@ -1,0 +1,536 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>molb&#39;s Notes</title>
+  
+  <subtitle>Growth notes</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://molb.me/"/>
+  <updated>2019-07-03T07:29:06.814Z</updated>
+  <id>http://molb.me/</id>
+  
+  <author>
+    <name>ZhangHeng</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>npm与yarn命令</title>
+    <link href="http://molb.me/2019/07/03/web/npm%E4%B8%8Eyarn%E5%91%BD%E4%BB%A4/"/>
+    <id>http://molb.me/2019/07/03/web/npm与yarn命令/</id>
+    <published>2019-07-02T16:00:00.000Z</published>
+    <updated>2019-07-03T07:29:06.814Z</updated>
+    
+    <content type="html"><![CDATA[<p>npm中文文档(<a href="https://www.npmjs.cn/" target="_blank" rel="noopener">https://www.npmjs.cn/</a>)<br>yarn中文文档(<a href="https://yarnpkg.com/zh-Hans/" target="_blank" rel="noopener">https://yarnpkg.com/zh-Hans/</a>)<br>yarn常用命令参考(<a href="https://blog.csdn.net/mjzhang1993/article/details/70092902/" target="_blank" rel="noopener">https://blog.csdn.net/mjzhang1993/article/details/70092902/</a>)<br>npm常用命令参考(<a href="https://blog.csdn.net/mjzhang1993/article/details/78899414" target="_blank" rel="noopener">https://blog.csdn.net/mjzhang1993/article/details/78899414</a>)</p><h2 id="npm与yarn常用命令"><a href="#npm与yarn常用命令" class="headerlink" title="npm与yarn常用命令"></a>npm与yarn常用命令</h2><h3 id="添加一个依赖"><a href="#添加一个依赖" class="headerlink" title="添加一个依赖"></a>添加一个依赖</h3><ol><li><p>依赖记录在 package.json 的 dependencies 下</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yarn add packageName // --save是yarn默认的</span><br><span class="line">npm install packageName --save</span><br></pre></td></tr></table></figure></li><li><p>依赖记录在 package.json 的 devDependencies 下</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yarn add packageName -dev // 简写 -d</span><br><span class="line">npm install packageName --save-dev</span><br></pre></td></tr></table></figure></li><li><p>全局安装依赖</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yarn global add packageName</span><br><span class="line">npm install packageName -g</span><br></pre></td></tr></table></figure></li></ol><a id="more"></a><h3 id="更新一个依赖"><a href="#更新一个依赖" class="headerlink" title="更新一个依赖"></a>更新一个依赖</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yarn upgrade packageName</span><br><span class="line">npm update packageName --save  // 可以通过 ‘--save|--save-dev’ 指定升级哪类依赖</span><br></pre></td></tr></table></figure><h3 id="移除一个依赖"><a href="#移除一个依赖" class="headerlink" title="移除一个依赖"></a>移除一个依赖</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yarn remove webpack</span><br><span class="line">npm uninstall webpack --save</span><br></pre></td></tr></table></figure><h3 id="安装-package-json-中的所有文件"><a href="#安装-package-json-中的所有文件" class="headerlink" title="安装 package.json 中的所有文件"></a>安装 package.json 中的所有文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yarn or yarn install</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure><h3 id="运行脚本"><a href="#运行脚本" class="headerlink" title="运行脚本"></a>运行脚本</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yarn run dev</span><br><span class="line">npm run dev</span><br></pre></td></tr></table></figure><h3 id="显示某个包信息"><a href="#显示某个包信息" class="headerlink" title="显示某个包信息"></a>显示某个包信息</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">yarn info webpack</span><br><span class="line">npm info webpack</span><br><span class="line"></span><br><span class="line">yarn info webpack --json // 输出 json 格式</span><br><span class="line">npm info webpack  --json // npm</span><br><span class="line"></span><br><span class="line">yarn info webpack readme // 输出 README 部分</span><br><span class="line">npm info webpack readme</span><br></pre></td></tr></table></figure><h3 id="列出项目的所有依赖"><a href="#列出项目的所有依赖" class="headerlink" title="列出项目的所有依赖"></a>列出项目的所有依赖</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">yarn list //列出当前项目的依赖</span><br><span class="line">npm list</span><br><span class="line"></span><br><span class="line">yarn list --depth=0 // 限制依赖的深度</span><br><span class="line">yarn global list // 列出全局安装的模块</span><br><span class="line">npm list -g --depth 0 // 列出全局安装的模块</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;npm中文文档(&lt;a href=&quot;https://www.npmjs.cn/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://www.npmjs.cn/&lt;/a&gt;)&lt;br&gt;yarn中文文档(&lt;a href=&quot;https://yarnpkg.com/zh-Hans/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://yarnpkg.com/zh-Hans/&lt;/a&gt;)&lt;br&gt;yarn常用命令参考(&lt;a href=&quot;https://blog.csdn.net/mjzhang1993/article/details/70092902/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://blog.csdn.net/mjzhang1993/article/details/70092902/&lt;/a&gt;)&lt;br&gt;npm常用命令参考(&lt;a href=&quot;https://blog.csdn.net/mjzhang1993/article/details/78899414&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://blog.csdn.net/mjzhang1993/article/details/78899414&lt;/a&gt;)&lt;/p&gt;
+&lt;h2 id=&quot;npm与yarn常用命令&quot;&gt;&lt;a href=&quot;#npm与yarn常用命令&quot; class=&quot;headerlink&quot; title=&quot;npm与yarn常用命令&quot;&gt;&lt;/a&gt;npm与yarn常用命令&lt;/h2&gt;&lt;h3 id=&quot;添加一个依赖&quot;&gt;&lt;a href=&quot;#添加一个依赖&quot; class=&quot;headerlink&quot; title=&quot;添加一个依赖&quot;&gt;&lt;/a&gt;添加一个依赖&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;依赖记录在 package.json 的 dependencies 下&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;yarn add packageName // --save是yarn默认的&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;npm install packageName --save&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;依赖记录在 package.json 的 devDependencies 下&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;yarn add packageName -dev // 简写 -d&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;npm install packageName --save-dev&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;全局安装依赖&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;yarn global add packageName&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;npm install packageName -g&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+    
+    </summary>
+    
+      <category term="Web" scheme="http://molb.me/categories/Web/"/>
+    
+    
+      <category term="Web" scheme="http://molb.me/tags/Web/"/>
+    
+      <category term="npm与yarn命令" scheme="http://molb.me/tags/npm%E4%B8%8Eyarn%E5%91%BD%E4%BB%A4/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Vue首屏加载优化</title>
+    <link href="http://molb.me/2019/06/28/vue/Vue%E9%A6%96%E5%B1%8F%E5%8A%A0%E8%BD%BD%E4%BC%98%E5%8C%96/"/>
+    <id>http://molb.me/2019/06/28/vue/Vue首屏加载优化/</id>
+    <published>2019-06-27T16:00:00.000Z</published>
+    <updated>2019-06-28T08:54:36.597Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="Vue首屏加载优化"><a href="#Vue首屏加载优化" class="headerlink" title="Vue首屏加载优化"></a>Vue首屏加载优化</h4><p>前言: vue单页应用带来便捷，同时也必须加载完js才渲染，导致首次加载js过大，会出现首屏白屏等问题！<br>在此感谢掘金大佬提供了具体方法: Vue SPA 首屏加载优化实践(<a href="https://juejin.im/post/5a291092518825293b50366d" target="_blank" rel="noopener">https://juejin.im/post/5a291092518825293b50366d</a>)</p><h5 id="直接使用cdn引入第三方库"><a href="#直接使用cdn引入第三方库" class="headerlink" title="直接使用cdn引入第三方库"></a>直接使用cdn引入第三方库</h5><ol><li>首先在模板文件index.html中通过script标签引入库</li><li><p>修改vue.config.js中的webpack配置(vue-cli3中配置,修改后要重启否则会报错误)</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">module.exports = &#123;</span><br><span class="line">  configureWebpack: &#123;</span><br><span class="line">    externals: &#123;</span><br><span class="line">      &apos;vue&apos;: &apos;Vue&apos;,</span><br><span class="line">      &apos;vuex&apos;: &apos;Vuex&apos;,</span><br><span class="line">      &apos;vue-router&apos;: &apos;VueRouter&apos;,</span><br><span class="line">      &apos;element-ui&apos;: &apos;ELEMENT&apos;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li><li><p>修改src/router.js</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">注释本地引入</span><br><span class="line">// import Vue from &apos;vue&apos;</span><br><span class="line">import VueRouter from &apos;vue-router&apos;</span><br><span class="line">import Home from &apos;./views/Home.vue&apos;</span><br><span class="line">// Vue.use(Router)</span><br></pre></td></tr></table></figure></li><li><p>修改src/store.js(同上)</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// import Vue from &apos;vue&apos;</span><br><span class="line">import Vuex from &apos;vuex&apos;</span><br><span class="line"></span><br><span class="line">// Vue.use(Vuex)</span><br></pre></td></tr></table></figure></li><li><p>修改src/main.js</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">import &apos;babel-polyfill&apos;</span><br><span class="line">import Vue from &apos;vue&apos;</span><br><span class="line">import App from &apos;./App&apos;</span><br><span class="line">import axios from &apos;axios&apos;</span><br><span class="line">import store from &apos;./store&apos;</span><br><span class="line">import router from &apos;./router&apos;</span><br><span class="line">import &#123;sync&#125; from &apos;vuex-router-sync&apos;</span><br><span class="line">import ELEMENT from &apos;element-ui&apos;</span><br><span class="line">// import &apos;element-ui/lib/theme-chalk/index.css&apos;</span><br><span class="line"></span><br><span class="line">Vue.config.productionTip = false</span><br><span class="line"></span><br><span class="line">Vue.use(ELEMENT)</span><br><span class="line">Vue.prototype.$http = axios</span><br><span class="line"></span><br><span class="line">new Vue(&#123;</span><br><span class="line">  el: &apos;#app&apos;,</span><br><span class="line">  store,</span><br><span class="line">  router,</span><br><span class="line">  template: &apos;&lt;App/&gt;&apos;,</span><br><span class="line">  components: &#123; App &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></li></ol><blockquote><p>注意！这里 element-ui 变量名要使用 ELEMENT，因为element-ui的 umd 模块名是 ELEMENT；此时运行会提示$router重复定义错误,需重新启动项目</p></blockquote><a id="more"></a><h5 id="Nginx-开启-gzip"><a href="#Nginx-开启-gzip" class="headerlink" title="Nginx 开启 gzip"></a>Nginx 开启 gzip</h5><p>前言: 本人使用的是PHPstudy，默认选择的是Apache服务器，so先进行切换，点击运行模式旁边的-切换版本即可！</p><ol><li><p>Nginx开启gzip，修改nginx配置文件 nginx.conf:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">http &#123;   </span><br><span class="line">   ...        </span><br><span class="line">  gzip on;</span><br><span class="line">  gzip_min_length    1k;</span><br><span class="line">  gzip_buffers    4  16k;</span><br><span class="line">  gzip_http_version  1.1; </span><br><span class="line">  gzip_comp_level    2; # 压缩级别    </span><br><span class="line">  # 要压缩的mine类型gzip_types  text/plain application/javascript application/x-javascript text/javascript text/css application/xml application/xml+rss image/jpeg image/gif image/png image/svg+xml;    </span><br><span class="line">  gzip_vary  off; </span><br><span class="line">  gzip_proxied  expired no-cache no-store private auth;</span><br><span class="line">  gzip_disable  &quot;MSIE [1-6]\.&quot;; # IE6不支持gzip        </span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li><li><p>同时在nginx.conf也要配置server(服务器项目在刷新当前页时会出现404错误),同时需要修改host文件<br>ps: nginx配置文件是ngins.conf,Apache是vhoss.ini</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">服务器项目配置:</span><br><span class="line">server_name  www.lab2.com;</span><br><span class="line">root    &quot;F:/GitProject/robotcat_www/dist&quot;;</span><br><span class="line"></span><br><span class="line">location / &#123;</span><br><span class="line">        try_files $uri $uri/ @router;</span><br><span class="line">  #autoindex  off;</span><br><span class="line">    &#125;</span><br><span class="line">location @router &#123;</span><br><span class="line">  rewrite ^.*$ /index.html last;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li></ol><p><img src="/uploads/server.jpg" alt="server"></p><p>Apache的配置:<br><img src="/uploads/apache.jpg" alt="Apache"></p><h5 id="相关其他使用"><a href="#相关其他使用" class="headerlink" title="相关其他使用"></a>相关其他使用</h5><ol><li>vue devtools工具(cdn引入时配置)<br><img src="/uploads/devtools.jpg" alt="devtools配置"></li><li>安装抓包工具Fiddler 与 http协议调试工具HttpDebug<br>两个软件直接安装即可,查看包的相关信息!<br>HttpDebug:<br><img src="/uploads/httpdebug.jpg" alt="httpdebug"><br>Fiddler:(none:代表没有gzip的文件)<br><img src="/uploads/fiddler.jpg" alt="fiddler"></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;Vue首屏加载优化&quot;&gt;&lt;a href=&quot;#Vue首屏加载优化&quot; class=&quot;headerlink&quot; title=&quot;Vue首屏加载优化&quot;&gt;&lt;/a&gt;Vue首屏加载优化&lt;/h4&gt;&lt;p&gt;前言: vue单页应用带来便捷，同时也必须加载完js才渲染，导致首次加载js过大，会出现首屏白屏等问题！&lt;br&gt;在此感谢掘金大佬提供了具体方法: Vue SPA 首屏加载优化实践(&lt;a href=&quot;https://juejin.im/post/5a291092518825293b50366d&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://juejin.im/post/5a291092518825293b50366d&lt;/a&gt;)&lt;/p&gt;
+&lt;h5 id=&quot;直接使用cdn引入第三方库&quot;&gt;&lt;a href=&quot;#直接使用cdn引入第三方库&quot; class=&quot;headerlink&quot; title=&quot;直接使用cdn引入第三方库&quot;&gt;&lt;/a&gt;直接使用cdn引入第三方库&lt;/h5&gt;&lt;ol&gt;
+&lt;li&gt;首先在模板文件index.html中通过script标签引入库&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;修改vue.config.js中的webpack配置(vue-cli3中配置,修改后要重启否则会报错误)&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;module.exports = &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  configureWebpack: &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    externals: &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &amp;apos;vue&amp;apos;: &amp;apos;Vue&amp;apos;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &amp;apos;vuex&amp;apos;: &amp;apos;Vuex&amp;apos;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &amp;apos;vue-router&amp;apos;: &amp;apos;VueRouter&amp;apos;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &amp;apos;element-ui&amp;apos;: &amp;apos;ELEMENT&amp;apos;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;修改src/router.js&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;注释本地引入&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;// import Vue from &amp;apos;vue&amp;apos;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;import VueRouter from &amp;apos;vue-router&amp;apos;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;import Home from &amp;apos;./views/Home.vue&amp;apos;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;// Vue.use(Router)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;修改src/store.js(同上)&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;// import Vue from &amp;apos;vue&amp;apos;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;import Vuex from &amp;apos;vuex&amp;apos;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;// Vue.use(Vuex)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;修改src/main.js&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;import &amp;apos;babel-polyfill&amp;apos;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;import Vue from &amp;apos;vue&amp;apos;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;import App from &amp;apos;./App&amp;apos;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;import axios from &amp;apos;axios&amp;apos;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;import store from &amp;apos;./store&amp;apos;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;import router from &amp;apos;./router&amp;apos;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;import &amp;#123;sync&amp;#125; from &amp;apos;vuex-router-sync&amp;apos;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;import ELEMENT from &amp;apos;element-ui&amp;apos;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;// import &amp;apos;element-ui/lib/theme-chalk/index.css&amp;apos;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Vue.config.productionTip = false&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Vue.use(ELEMENT)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Vue.prototype.$http = axios&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;new Vue(&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  el: &amp;apos;#app&amp;apos;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  store,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  router,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  template: &amp;apos;&amp;lt;App/&amp;gt;&amp;apos;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  components: &amp;#123; App &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;注意！这里 element-ui 变量名要使用 ELEMENT，因为element-ui的 umd 模块名是 ELEMENT；此时运行会提示$router重复定义错误,需重新启动项目&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="vue" scheme="http://molb.me/categories/vue/"/>
+    
+    
+      <category term="Vue" scheme="http://molb.me/tags/Vue/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Vue-cli3脚手架</title>
+    <link href="http://molb.me/2019/05/23/vue/Vue-cli3/"/>
+    <id>http://molb.me/2019/05/23/vue/Vue-cli3/</id>
+    <published>2019-05-22T16:00:00.000Z</published>
+    <updated>2019-06-28T08:58:18.477Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="vue-ui的使用"><a href="#vue-ui的使用" class="headerlink" title="vue-ui的使用"></a>vue-ui的使用</h4><p>安装vue-ui时，若是官网初始列子，npm run serve时会报注意错误！<br><img src="/uploads/vue-ui.png" alt="vue-ui"></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h4 id=&quot;vue-ui的使用&quot;&gt;&lt;a href=&quot;#vue-ui的使用&quot; class=&quot;headerlink&quot; title=&quot;vue-ui的使用&quot;&gt;&lt;/a&gt;vue-ui的使用&lt;/h4&gt;&lt;p&gt;安装vue-ui时，若是官网初始列子，npm run serve时会报注意错误！&lt;b
+      
+    
+    </summary>
+    
+      <category term="vue" scheme="http://molb.me/categories/vue/"/>
+    
+    
+      <category term="Vue" scheme="http://molb.me/tags/Vue/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>HTML5布局之路(一)</title>
+    <link href="http://molb.me/2018/08/21/web/Html5%E5%B8%83%E5%B1%80/"/>
+    <id>http://molb.me/2018/08/21/web/Html5布局/</id>
+    <published>2018-08-20T16:00:00.000Z</published>
+    <updated>2018-08-21T07:22:28.394Z</updated>
+    
+    <content type="html"><![CDATA[<p>出来参加工作也有一段时间了，公司特意为it员工买了书，虽然html已是很熟悉了，但是重新看一遍还是颇有收获的。</p><h4 id="网站开发流程"><a href="#网站开发流程" class="headerlink" title="网站开发流程"></a>网站开发流程</h4><p>一个网站从需求的产生到广为人知，大致需要经历5个阶段，即网站需求分析、网站技术分析、网站页面策划、网站设计开发、网站测试改进。前端开发人员负责后两个阶段：开发和测试。</p><h4 id="HTML5相关了解"><a href="#HTML5相关了解" class="headerlink" title="HTML5相关了解"></a>HTML5相关了解</h4><ol><li>网页 = 结构 + 表现 + 行为<br>HTML5 = <font color="red">HTML</font> + <font color="red">CSS</font> + <font color="red">JavaScript</font><br><font color="red">HTML</font>：超文本标记语言，用于构建网页的结构。<br><font color="red">CSS</font>：层叠样式表，用于处理网页标签的样式。<br><font color="red">JavaScript</font>：一种脚本语言，用于处理网页中标签的行为。</li><li>&lt;!doctype html&gt;<br>doctype是document type(文档类型的缩写),主要声明页面的文档类型,告知浏览器当前的类型是html,从而以合适的方式加载。当前使用的是html5.0版本，声明是：&lt;!doctype html&gt;<br>扩展：html4.01文档声明类型主要如下：过渡定义类型、严格定义类型、框架定义类型。<a id="more"></a></li><li>meta元信息<br>meta是用来在html文档中模拟http的响应头报文，meta属性有两种：name和http-equiv。在此主要介绍属性对应常用的子属性。<br>name属性：<br>&emsp;generator：代码的生成工具。<br>&emsp;keywords：关键词，用于搜索引擎<br>&emsp;description：描述信息，介绍网页的主要内容是什么<br>&emsp;author：作者<br>&emsp;copyright：版权所属<br>&emsp;robots：机器人，用于向搜索引擎说明文件的检索方式，即哪些页面需要索引，哪些不需要。常用值：all、none、index、noindex、follow、nofollow。<br>http-equiv属性:<br>&emsp;content-type：设置网页内容的编码类型<br>&emsp;content-language：说明网页所使用的语言<br>&emsp;refresh：用于定时让网页在指定时间内刷新或跳转到其他页面。<br>&emsp;expires：设定网页的到期时间，一旦过期需要到服务器重新调用，必须是GMT时间格式<br>&emsp;set-cookie：设置cookie的过期时间<br>&emsp;windows-target：告知网页在当前窗口以独立页面显示，可以防止页面被当做frame页调用，即防止钓鱼。</li></ol>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;出来参加工作也有一段时间了，公司特意为it员工买了书，虽然html已是很熟悉了，但是重新看一遍还是颇有收获的。&lt;/p&gt;
+&lt;h4 id=&quot;网站开发流程&quot;&gt;&lt;a href=&quot;#网站开发流程&quot; class=&quot;headerlink&quot; title=&quot;网站开发流程&quot;&gt;&lt;/a&gt;网站开发流程&lt;/h4&gt;&lt;p&gt;一个网站从需求的产生到广为人知，大致需要经历5个阶段，即网站需求分析、网站技术分析、网站页面策划、网站设计开发、网站测试改进。前端开发人员负责后两个阶段：开发和测试。&lt;/p&gt;
+&lt;h4 id=&quot;HTML5相关了解&quot;&gt;&lt;a href=&quot;#HTML5相关了解&quot; class=&quot;headerlink&quot; title=&quot;HTML5相关了解&quot;&gt;&lt;/a&gt;HTML5相关了解&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;网页 = 结构 + 表现 + 行为&lt;br&gt;HTML5 = &lt;font color=&quot;red&quot;&gt;HTML&lt;/font&gt; + &lt;font color=&quot;red&quot;&gt;CSS&lt;/font&gt; + &lt;font color=&quot;red&quot;&gt;JavaScript&lt;/font&gt;&lt;br&gt;&lt;font color=&quot;red&quot;&gt;HTML&lt;/font&gt;：超文本标记语言，用于构建网页的结构。&lt;br&gt;&lt;font color=&quot;red&quot;&gt;CSS&lt;/font&gt;：层叠样式表，用于处理网页标签的样式。&lt;br&gt;&lt;font color=&quot;red&quot;&gt;JavaScript&lt;/font&gt;：一种脚本语言，用于处理网页中标签的行为。&lt;/li&gt;
+&lt;li&gt;&amp;lt;!doctype html&amp;gt;&lt;br&gt;doctype是document type(文档类型的缩写),主要声明页面的文档类型,告知浏览器当前的类型是html,从而以合适的方式加载。当前使用的是html5.0版本，声明是：&amp;lt;!doctype html&amp;gt;&lt;br&gt;扩展：html4.01文档声明类型主要如下：过渡定义类型、严格定义类型、框架定义类型。
+    
+    </summary>
+    
+      <category term="HTML5" scheme="http://molb.me/categories/HTML5/"/>
+    
+    
+      <category term="Web" scheme="http://molb.me/tags/Web/"/>
+    
+      <category term="HTML5" scheme="http://molb.me/tags/HTML5/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Sass使用(一)</title>
+    <link href="http://molb.me/2018/08/20/sass/sass%E4%BD%BF%E7%94%A8/"/>
+    <id>http://molb.me/2018/08/20/sass/sass使用/</id>
+    <published>2018-08-19T16:00:00.000Z</published>
+    <updated>2018-08-20T01:41:40.146Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+      <category term="Sass" scheme="http://molb.me/categories/Sass/"/>
+    
+    
+      <category term="Sass" scheme="http://molb.me/tags/Sass/"/>
+    
+      <category term="CSS" scheme="http://molb.me/tags/CSS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>《你坏》--大冰</title>
+    <link href="http://molb.me/2018/07/25/essays/%E4%BD%A0%E5%9D%8F/"/>
+    <id>http://molb.me/2018/07/25/essays/你坏/</id>
+    <published>2018-07-24T16:00:00.000Z</published>
+    <updated>2018-07-26T01:16:51.956Z</updated>
+    
+    <content type="html"><![CDATA[<p>大冰，我不知道他是谁，只知道他做个很多工作或者说在生活中扮演了很多角色，他当过主持人、油画画师、民谣歌手、作家甚至出过家，也是一位拉漂。丰富的人生经历开阔了视野，发生了很多江湖事，不管别人怎么看，我很感谢他给我的鸡汤，也感动于那些真实的故事，真实的人。我想，在任何黑暗不安的时刻，感动的事情会时刻发生，然后带你走向希望，在那之前，请你再坚持坚持！</p><h4 id="经典语录"><a href="#经典语录" class="headerlink" title="经典语录"></a>经典语录</h4><blockquote class="blockquote-center"><p>于无常处知有情，于有情处知众生<br>如果你和众人不一样，那就不一样，如果你和世界不一样，那就不一样吧<br>今朝落笔，信马由缰，散文而已<br>不过一座普通的城市，并不是乌托邦，也从不是乌托邦。<br>你若能平视它，自得欢喜，自得清趣<br>茶嘶乱香，茶酽观色 杯新嚼齑，水到曲成<br>不凡始于平凡</p></blockquote><a id="more"></a><p>人生本无定数，生活就是阿甘的巧克力，你永远不知道下一颗是什么味道。我们还年轻，还可以去尝试，去拼搏，去失败，走什么样的路，由你而定，别人最多给参考。跟心走，哪怕前路坎坷，一路泥泞。生活不会眷顾谁，必然的迷茫会给你留下宝贵的经验。所以，向前，不要害怕，不用犹豫，狭路相逢勇者胜。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;大冰，我不知道他是谁，只知道他做个很多工作或者说在生活中扮演了很多角色，他当过主持人、油画画师、民谣歌手、作家甚至出过家，也是一位拉漂。丰富的人生经历开阔了视野，发生了很多江湖事，不管别人怎么看，我很感谢他给我的鸡汤，也感动于那些真实的故事，真实的人。我想，在任何黑暗不安的时刻，感动的事情会时刻发生，然后带你走向希望，在那之前，请你再坚持坚持！&lt;/p&gt;
+&lt;h4 id=&quot;经典语录&quot;&gt;&lt;a href=&quot;#经典语录&quot; class=&quot;headerlink&quot; title=&quot;经典语录&quot;&gt;&lt;/a&gt;经典语录&lt;/h4&gt;&lt;blockquote class=&quot;blockquote-center&quot;&gt;&lt;p&gt;于无常处知有情，于有情处知众生&lt;br&gt;如果你和众人不一样，那就不一样，如果你和世界不一样，那就不一样吧&lt;br&gt;今朝落笔，信马由缰，散文而已&lt;br&gt;不过一座普通的城市，并不是乌托邦，也从不是乌托邦。&lt;br&gt;你若能平视它，自得欢喜，自得清趣&lt;br&gt;茶嘶乱香，茶酽观色 杯新嚼齑，水到曲成&lt;br&gt;不凡始于平凡&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="碎碎念" scheme="http://molb.me/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5/"/>
+    
+    
+      <category term="碎碎念" scheme="http://molb.me/tags/%E7%A2%8E%E7%A2%8E%E5%BF%B5/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>PDF.js</title>
+    <link href="http://molb.me/2018/06/23/pdf/pdf/"/>
+    <id>http://molb.me/2018/06/23/pdf/pdf/</id>
+    <published>2018-06-22T16:00:00.000Z</published>
+    <updated>2018-07-24T03:50:04.295Z</updated>
+    
+    <content type="html"><![CDATA[<p>因为工作需要，需要在移动端实现一种pdf在线预览功能，在网上百度了很多种方法，最终决定使用pdf.js。<br>好处：1.对移动端和pc端都有不错的兼容性。2.采用的是预加载方式，对于比较大的文件也有不错的速度（具体速度肯定和文件大小，服务器响应速度等等有关）。3.样式展示丰富，可展示文档目录、缩略图、缩放模式、下载、打印等功能。<br>现把一些踩过的坑分享出来，顺便做个笔记。</p><h4 id="PDF-js下载"><a href="#PDF-js下载" class="headerlink" title="PDF.js下载"></a>PDF.js下载</h4><p>首先进入<a href="http://mozilla.github.io/pdf.js/" target="_blank" rel="noopener">pdf.js</a>官网；会发现有三个按钮，分别是Download、Demo、GitHub Project。Demo和github感兴趣的可以去看看。直接点击Download，选择stable（稳定版）即可。<br>下载下来后，存在三个文档<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">--bulid                            PDF.JS核心文件</span><br><span class="line">  --pdf.js                         必需(渲染pdf文件)</span><br><span class="line">  --pdf.js.map</span><br><span class="line">  --pdf.worker.js                  必需(解析pdf文件)</span><br><span class="line">  --pdf.worker.js.map</span><br><span class="line">--web                              PDF.js配置与显示文件</span><br><span class="line">  --cmaps                          字符映射</span><br><span class="line">  --images                         icon图标</span><br><span class="line">  --locale                         翻译文件</span><br><span class="line">  --09.pdf                         测试文件</span><br><span class="line">  --debugger.js               </span><br><span class="line">  --viewer.css</span><br><span class="line">  --viewer.html                    html</span><br><span class="line">  --viewer.js</span><br><span class="line">  --viewer.js.map</span><br><span class="line">--LICENSE                             许可证(不用管)</span><br></pre></td></tr></table></figure></p><p>若是自定义样式,只需pdf.js和pdf.worker.js即可;<br>若是参照demo样式,则需要viewer.js和css文件.<br><a id="more"></a></p><h4 id="pdf-js使用"><a href="#pdf-js使用" class="headerlink" title="pdf.js使用:"></a>pdf.js使用:</h4><ol><li>首先注释或者掉测试pdf<img src="/images/pdf2.png" alt="pdf测试文件"></li><li>随意放入pdf文件,在viewer.html中<img src="/images/pdf.png" alt="pdf文件"></li><li><p>打开,必须通过服务器端打开,即需要Apache运行环境(本人是PHPstudy)</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">网址:localhost:4000/web/viewer.html</span><br></pre></td></tr></table></figure></li><li><p>动态的控制url</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var DEFAULT_URL=http://localhost:4200/web/viewer.html?file=doc/09.pdf</span><br></pre></td></tr></table></figure></li></ol><h4 id="pdf-js遇到的问题"><a href="#pdf-js遇到的问题" class="headerlink" title="pdf.js遇到的问题"></a>pdf.js遇到的问题</h4><ol><li>打开比较早的pdf文件会出现乱码情况<br>这种情况是瞎捣鼓出来的,只能换用较近的pdf文档.</li><li>打开文件名为JSON必知必会.pdf或者09.pdf文档无事,但是打开文件名5b231c49523b7.pdf时,会自动打开侧栏。<br>这个原因至今未明,问题不大,就是想知道为什么,望知道的大哥告知一声</li><li>url跨域问题<br>网上一堆说修改请求头的,最后还是采用了<a href="https://blog.csdn.net/u013132051/article/details/76066920" target="_blank" rel="noopener">pdf跨域加载文件</a></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;因为工作需要，需要在移动端实现一种pdf在线预览功能，在网上百度了很多种方法，最终决定使用pdf.js。&lt;br&gt;好处：1.对移动端和pc端都有不错的兼容性。2.采用的是预加载方式，对于比较大的文件也有不错的速度（具体速度肯定和文件大小，服务器响应速度等等有关）。3.样式展示丰富，可展示文档目录、缩略图、缩放模式、下载、打印等功能。&lt;br&gt;现把一些踩过的坑分享出来，顺便做个笔记。&lt;/p&gt;
+&lt;h4 id=&quot;PDF-js下载&quot;&gt;&lt;a href=&quot;#PDF-js下载&quot; class=&quot;headerlink&quot; title=&quot;PDF.js下载&quot;&gt;&lt;/a&gt;PDF.js下载&lt;/h4&gt;&lt;p&gt;首先进入&lt;a href=&quot;http://mozilla.github.io/pdf.js/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;pdf.js&lt;/a&gt;官网；会发现有三个按钮，分别是Download、Demo、GitHub Project。Demo和github感兴趣的可以去看看。直接点击Download，选择stable（稳定版）即可。&lt;br&gt;下载下来后，存在三个文档&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;--bulid                            PDF.JS核心文件&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  --pdf.js                         必需(渲染pdf文件)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  --pdf.js.map&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  --pdf.worker.js                  必需(解析pdf文件)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  --pdf.worker.js.map&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;--web                              PDF.js配置与显示文件&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  --cmaps                          字符映射&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  --images                         icon图标&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  --locale                         翻译文件&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  --09.pdf                         测试文件&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  --debugger.js               &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  --viewer.css&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  --viewer.html                    html&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  --viewer.js&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  --viewer.js.map&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;--LICENSE                             许可证(不用管)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;若是自定义样式,只需pdf.js和pdf.worker.js即可;&lt;br&gt;若是参照demo样式,则需要viewer.js和css文件.&lt;br&gt;
+    
+    </summary>
+    
+      <category term="PDF.js" scheme="http://molb.me/categories/PDF-js/"/>
+    
+    
+      <category term="PDF.js" scheme="http://molb.me/tags/PDF-js/"/>
+    
+      <category term="框架" scheme="http://molb.me/tags/%E6%A1%86%E6%9E%B6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Http协议基础(二)</title>
+    <link href="http://molb.me/2018/05/29/http%E5%8D%8F%E8%AE%AE/Http%E5%8D%8F%E8%AE%AE%E5%9F%BA%E7%A1%80-2/"/>
+    <id>http://molb.me/2018/05/29/http协议/Http协议基础-2/</id>
+    <published>2018-05-28T16:00:00.000Z</published>
+    <updated>2018-07-26T03:48:50.871Z</updated>
+    
+    <content type="html"><![CDATA[<p>基础一主要讲述HTTP的通信传输过程，讲解了持久化链接与Cookie。</p><h4 id="HTTP报文"><a href="#HTTP报文" class="headerlink" title="HTTP报文"></a>HTTP报文</h4><p>用于HTTP协议交互的信息被称为HTTP报文。请求端（客户端）的HTTP报文叫做请求报文，响应端（服务器端） 的叫做响应报文。HTTP报文本身是由多行（用 CR+LF 作换行符）数据构成的字符串文本。<br><img src="/uploads/http6.png" alt="报文"><br><a id="more"></a></p><h5 id="请求报文实例"><a href="#请求报文实例" class="headerlink" title="请求报文实例"></a>请求报文实例</h5><p><img src="/uploads/http7.png" alt="请求报文"></p><h5 id="响应报文实例"><a href="#响应报文实例" class="headerlink" title="响应报文实例"></a>响应报文实例</h5><p><img src="/uploads/http8.png" alt="请求报文"></p><ol><li>请求行: 包含用于请求的方法， 请求 URI 和 HTTP 版本。</li><li>状态行: 包含表明响应结果的状态码， 原因短语和 HTTP 版本。</li><li>首部字段: 包含表示请求和响应的各种条件和属性的各类首部。<br>一般有4种首部，分别是：通用首部、请求首部、响应首部和实体首部。</li><li>其他: 可能包含 HTTP 的 RFC 里未定义的首部（Cookie 等） 。</li></ol><h4 id="HTTP状态码"><a href="#HTTP状态码" class="headerlink" title="HTTP状态码"></a>HTTP状态码</h4><p>状态码的职责是当客户端向服务器端发送请求时，描述返回的请求结果。借助状态码，用户可以知道服务器端是正常处理了请求，还是出现了错误。</p><h5 id="HTTP状态码的类别"><a href="#HTTP状态码的类别" class="headerlink" title="HTTP状态码的类别"></a>HTTP状态码的类别</h5><p><img src="/uploads/http9.jpg" alt="http状态码类别"></p><h5 id="常见的HTTP状态码"><a href="#常见的HTTP状态码" class="headerlink" title="常见的HTTP状态码"></a>常见的HTTP状态码</h5><ol><li><font color="red">200</font> ok<br>表示从客户端发来的请求在服务器端被正常处理了 (成功)</li><li><font color="red">204</font> No Content<br>该状态码代表服务器接收的请求已成功处理，但没有资源可返回 (无内容)</li><li><font color="red">206</font> Partial Content<br>该状态码表示客户端进行了范围请求，而服务器成功执行了这部分的GET请求。 (部分内容)</li><li><font color="red">301</font> Moved Permanently<br>永久性重定向。该状态码表示请求的资源已被分配了新的URI (永久移动)</li><li><font color="red">302</font> Found<br>临时性重定向。该状态码表示请求的资源已被分配了新的 URI，希望用户（本次）能使用新的URI访问。(临时移动)</li><li><font color="red">303</font> See Other<br>该状态码表示由于请求对应的资源存在着另一个 URI，应使用 GET方法定向获取请求的资源。(查看其它位置)</li><li><font color="red">304</font> Not Modified<br>自从上次请求后，请求的网页未修改过。 服务器返回此响应时，不会返回网页内容。(未修改)</li><li><font color="red">400</font> Bad Request<br>该状态码表示请求报文中存在语法错误当错误发生时，需修改请求的内容后再次发送请求。(错误请求)</li><li><font color="red">403</font> Forbidden<br>该状态码表明对请求资源的访问被服务器拒绝了。(禁止)</li><li><font color="red">404</font> Not Found<br>该状态码表明服务器上无法找到请求的资源。(未找到)</li><li><font color="red">500</font> Internal Server Error<br>该状态码表明服务器端在执行请求时发生了错误。 也有可能是 Web应用存在的 bug 或某些临时的故障。(服务器内部错误)</li><li><font color="red">503</font> Service Unavailable<br>该状态码表明服务器暂时处于超负载或正在进行停机维护， 现在无法处理请求。(服务不可用)</li></ol><h4 id="访问用户的身份认证"><a href="#访问用户的身份认证" class="headerlink" title="访问用户的身份认证"></a>访问用户的身份认证</h4><p>在此只简单的介绍几种方式，具体参考书籍</p><ol><li>BASIC 认证（基本认证）</li><li>DIGEST 认证（摘要认证）</li><li>SSL 客户端认证</li><li>FormBase 认证（基于表单认证）</li></ol>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;基础一主要讲述HTTP的通信传输过程，讲解了持久化链接与Cookie。&lt;/p&gt;
+&lt;h4 id=&quot;HTTP报文&quot;&gt;&lt;a href=&quot;#HTTP报文&quot; class=&quot;headerlink&quot; title=&quot;HTTP报文&quot;&gt;&lt;/a&gt;HTTP报文&lt;/h4&gt;&lt;p&gt;用于HTTP协议交互的信息被称为HTTP报文。请求端（客户端）的HTTP报文叫做请求报文，响应端（服务器端） 的叫做响应报文。HTTP报文本身是由多行（用 CR+LF 作换行符）数据构成的字符串文本。&lt;br&gt;&lt;img src=&quot;/uploads/http6.png&quot; alt=&quot;报文&quot;&gt;&lt;br&gt;
+    
+    </summary>
+    
+      <category term="HTTP" scheme="http://molb.me/categories/HTTP/"/>
+    
+    
+      <category term="HTTP" scheme="http://molb.me/tags/HTTP/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Http协议基础(一)</title>
+    <link href="http://molb.me/2018/05/13/http%E5%8D%8F%E8%AE%AE/Http%E5%8D%8F%E8%AE%AE%E5%9F%BA%E7%A1%80-1/"/>
+    <id>http://molb.me/2018/05/13/http协议/Http协议基础-1/</id>
+    <published>2018-05-12T16:00:00.000Z</published>
+    <updated>2018-07-26T03:11:43.798Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="Http协议简介"><a href="#Http协议简介" class="headerlink" title="Http协议简介"></a>Http协议简介</h4><p>说明:本博文参照《图解HTTP》<br>定义:HTTP协议:HyperText Transfer Protocol，超文本传输协议，可以说Web是建立在http协议上通信的。</p><h4 id="网络基础TCP-IP"><a href="#网络基础TCP-IP" class="headerlink" title="网络基础TCP/IP"></a>网络基础TCP/IP</h4><p>通常使用的网络是在TCP/IP协议族基础上运作的，而HTTP是该协议族的一个子集。<br><img src="/uploads/tcp.png" alt="协议族"><br><a id="more"></a></p><h5 id="TCP-IP分层管理"><a href="#TCP-IP分层管理" class="headerlink" title="TCP/IP分层管理"></a>TCP/IP分层管理</h5><p>TCP/IP协议族按层次分别分为以下4层：应用层、传输层、网络层和数据链路层。</p><ol><li>应用层: 应用层决定了向用户提供应用服务时通信的活动。<br>TCP/IP协议族内预存了各类通用的应用服务。 比如，FTP（FileTransfer Protocol，文件传输协议）和DNS（Domain Name System，域名系统） 服务就是其中两类。<font color="red">HTTP协议也处于该层</font></li><li>传输层: 传输层对上层应用层，提供处于网络连接中的两台计算机之间的数据传输。<br>在传输层有两个性质不同的协议：TCP（Transmission ControlProtocol，传输控制协议）和UDP（User Data Protocol，用户数据报协议）。</li><li>网络层: 网络层用来处理在网络上流动的数据包。<br>数据包是网络传输的最小数据单位。 该层规定了通过怎样的路径（所谓的传输路线） 到达对方计算机， 并把数据包传送给对方。IP协议在该层</li><li>数据链路层: 又名网络接口层，用来处理连接网络的硬件部分<h5 id="TCP-IP通信传输"><a href="#TCP-IP通信传输" class="headerlink" title="TCP/IP通信传输"></a>TCP/IP通信传输</h5>利用 TCP/IP 协议族进行网络通信时，会通过分层顺序与对方进行通信。发送端从应用层往下走，接收端则往应用层往上走。<br><img src="/uploads/http2.png" alt="通信传输"><h5 id="完整的网页通信过程"><a href="#完整的网页通信过程" class="headerlink" title="完整的网页通信过程"></a>完整的网页通信过程</h5><img src="/uploads/http3.jpg" alt="通信过程"><h5 id="URI与URL"><a href="#URI与URL" class="headerlink" title="URI与URL"></a>URI与URL</h5>URI: 统一资源标识符(<a href="http://www.iana.org/assignments/uri-schemes/index.html" target="_blank" rel="noopener">http://www.iana.org/assignments/uri-schemes/index.html</a>)<br>URL: 统一资源定位符(<a href="http://hackr.jp/" target="_blank" rel="noopener">http://hackr.jp/</a>)<br>URL是URI的子集。<h4 id="简单的HTTP协议"><a href="#简单的HTTP协议" class="headerlink" title="简单的HTTP协议"></a>简单的HTTP协议</h4>HTTP协议用于客户端和服务器端之间的通信，请求必定由客户端发出，而服务器端回复响应。<h5 id="HTTP是不保存状态的协议"><a href="#HTTP是不保存状态的协议" class="headerlink" title="HTTP是不保存状态的协议"></a>HTTP是不保存状态的协议</h5>HTTP 是一种不保存状态， 即无状态（stateless）协议。HTTP 协议自身不对请求和响应之间的通信状态进行保存。 也就是说在HTTP这个级别，协议对于发送过的请求或响应都不做持久化处理。<br>但为了实现期望的保持状态功能，于是引入了Cookie技术。 有了Cookie再用HTTP协议通信，就可以管理状态了。<br>HTTP协议方法<br><img src="/uploads/http4.jpg" alt=""><h5 id="持久链接"><a href="#持久链接" class="headerlink" title="持久链接"></a>持久链接</h5>持久连接（HTTP Persistent Connections， 也称为 HTTP keep-alive 或HTTPconnection reuse。持久连接的特点是，只要任意一端没有明确提出断开连接， 则保持TCP连接状态。<h5 id="Cookie"><a href="#Cookie" class="headerlink" title="Cookie"></a>Cookie</h5>Cookie会根据从服务器端发送的响应报文内的一个叫做Set-Cookie 的首部字段信息，通知客户端保存 Cookie。当下次客户端再往该服务器发送请求时，客户端会自动在请求报中加入Cookie值后发送出去。<br>服务器端发现客户端发送过来的 Cookie 后，会去检查究竟是从哪一个客户端发来的连接请求，然后对比服务器上的记录，最后得到之前的状态信息。<br><img src="/uploads/http5.jpg" alt="Cookie"></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;Http协议简介&quot;&gt;&lt;a href=&quot;#Http协议简介&quot; class=&quot;headerlink&quot; title=&quot;Http协议简介&quot;&gt;&lt;/a&gt;Http协议简介&lt;/h4&gt;&lt;p&gt;说明:本博文参照《图解HTTP》&lt;br&gt;定义:HTTP协议:HyperText Transfer Protocol，超文本传输协议，可以说Web是建立在http协议上通信的。&lt;/p&gt;
+&lt;h4 id=&quot;网络基础TCP-IP&quot;&gt;&lt;a href=&quot;#网络基础TCP-IP&quot; class=&quot;headerlink&quot; title=&quot;网络基础TCP/IP&quot;&gt;&lt;/a&gt;网络基础TCP/IP&lt;/h4&gt;&lt;p&gt;通常使用的网络是在TCP/IP协议族基础上运作的，而HTTP是该协议族的一个子集。&lt;br&gt;&lt;img src=&quot;/uploads/tcp.png&quot; alt=&quot;协议族&quot;&gt;&lt;br&gt;
+    
+    </summary>
+    
+      <category term="HTTP" scheme="http://molb.me/categories/HTTP/"/>
+    
+    
+      <category term="HTTP" scheme="http://molb.me/tags/HTTP/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Vue技术栈(二)</title>
+    <link href="http://molb.me/2018/04/27/vue/Vue%E6%8A%80%E6%9C%AF%E6%A0%88-2/"/>
+    <id>http://molb.me/2018/04/27/vue/Vue技术栈-2/</id>
+    <published>2018-04-26T16:00:00.000Z</published>
+    <updated>2019-06-28T07:12:15.742Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="Vue简介"><a href="#Vue简介" class="headerlink" title="Vue简介"></a>Vue简介</h4><p>vue.js是一套mvvm框架，vue的核心库只关注视图层，主要应用于SPA开发。首先了解什么是MVVM？<br><img src="/images/mvvm.png" alt="MVVM"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">View(视图) Model(模型)</span><br><span class="line">它们是双向绑定，在View中改变的会反馈到Model中，反之亦然。</span><br></pre></td></tr></table></figure></p><a id="more"></a>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;Vue简介&quot;&gt;&lt;a href=&quot;#Vue简介&quot; class=&quot;headerlink&quot; title=&quot;Vue简介&quot;&gt;&lt;/a&gt;Vue简介&lt;/h4&gt;&lt;p&gt;vue.js是一套mvvm框架，vue的核心库只关注视图层，主要应用于SPA开发。首先了解什么是MVVM？&lt;br&gt;&lt;img src=&quot;/images/mvvm.png&quot; alt=&quot;MVVM&quot;&gt;&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;View(视图) Model(模型)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;它们是双向绑定，在View中改变的会反馈到Model中，反之亦然。&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="vue" scheme="http://molb.me/categories/vue/"/>
+    
+    
+      <category term="Vue" scheme="http://molb.me/tags/Vue/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Vue技术栈(一)</title>
+    <link href="http://molb.me/2018/04/04/vue/Vue%E6%8A%80%E6%9C%AF%E6%A0%88-1/"/>
+    <id>http://molb.me/2018/04/04/vue/Vue技术栈-1/</id>
+    <published>2018-04-03T16:00:00.000Z</published>
+    <updated>2019-06-28T07:12:12.157Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="Vue简介"><a href="#Vue简介" class="headerlink" title="Vue简介"></a>Vue简介</h4><p>vue.js是一套mvvm框架，vue的核心库只关注视图层，主要应用于SPA开发。首先了解什么是MVVM？<br><img src="/images/mvvm.png" alt="MVVM"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">View(视图) Model(模型)</span><br><span class="line">它们是双向绑定，在View中改变的会反馈到Model中，反之亦然。</span><br></pre></td></tr></table></figure></p><a id="more"></a>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;Vue简介&quot;&gt;&lt;a href=&quot;#Vue简介&quot; class=&quot;headerlink&quot; title=&quot;Vue简介&quot;&gt;&lt;/a&gt;Vue简介&lt;/h4&gt;&lt;p&gt;vue.js是一套mvvm框架，vue的核心库只关注视图层，主要应用于SPA开发。首先了解什么是MVVM？&lt;br&gt;&lt;img src=&quot;/images/mvvm.png&quot; alt=&quot;MVVM&quot;&gt;&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;View(视图) Model(模型)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;它们是双向绑定，在View中改变的会反馈到Model中，反之亦然。&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="vue" scheme="http://molb.me/categories/vue/"/>
+    
+    
+      <category term="Vue" scheme="http://molb.me/tags/Vue/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>VueX</title>
+    <link href="http://molb.me/2018/03/23/vue/VueX/"/>
+    <id>http://molb.me/2018/03/23/vue/VueX/</id>
+    <published>2018-03-22T16:00:00.000Z</published>
+    <updated>2019-06-28T07:11:57.922Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="Vue简介"><a href="#Vue简介" class="headerlink" title="Vue简介"></a>Vue简介</h4><p>vue.js是一套mvvm框架，vue的核心库只关注视图层，主要应用于SPA开发。首先了解什么是MVVM？<br><img src="/images/mvvm.png" alt="MVVM"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">View(视图) Model(模型)</span><br><span class="line">它们是双向绑定，在View中改变的会反馈到Model中，反之亦然。</span><br></pre></td></tr></table></figure></p><a id="more"></a>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;Vue简介&quot;&gt;&lt;a href=&quot;#Vue简介&quot; class=&quot;headerlink&quot; title=&quot;Vue简介&quot;&gt;&lt;/a&gt;Vue简介&lt;/h4&gt;&lt;p&gt;vue.js是一套mvvm框架，vue的核心库只关注视图层，主要应用于SPA开发。首先了解什么是MVVM？&lt;br&gt;&lt;img src=&quot;/images/mvvm.png&quot; alt=&quot;MVVM&quot;&gt;&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;View(视图) Model(模型)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;它们是双向绑定，在View中改变的会反馈到Model中，反之亦然。&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="vue" scheme="http://molb.me/categories/vue/"/>
+    
+    
+      <category term="Vue" scheme="http://molb.me/tags/Vue/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>深度拷贝</title>
+    <link href="http://molb.me/2018/03/13/algorithm/%E6%B7%B1%E5%BA%A6%E6%8B%B7%E8%B4%9D/"/>
+    <id>http://molb.me/2018/03/13/algorithm/深度拷贝/</id>
+    <published>2018-03-12T16:00:00.000Z</published>
+    <updated>2019-07-08T08:59:59.500Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="深拷贝"><a href="#深拷贝" class="headerlink" title="深拷贝"></a>深拷贝</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">const b = [1, 2, 3, 4, &#123; value: 123 &#125;]</span><br><span class="line">const a = b.concat([]) // a = b or a = [...b] or a = JSON.parse(JSON.stringify(b)) or a = Object.values(Object.assign(&#123;&#125;, b))</span><br><span class="line">a.push(5)</span><br><span class="line">a[4].value = 321</span><br><span class="line">a[0] = 2</span><br><span class="line"></span><br><span class="line">console.log(a, b)</span><br><span class="line">a = b  结果:[2,2,3,4,&#123;value: 321&#125;,5]</span><br><span class="line">a = [...b]结果:a: [2,2,3,4,&#123;value: 321&#125;,5] b:结果:[1,2,3,4,&#123;value: 321&#125;]</span><br><span class="line"></span><br><span class="line">([...b] or b.concat([]) or Object.values(Object.assign(&#123;&#125;, b)),三种结果一致,对数值或字符串基础类型进行深拷贝,对象,数组等引用类型是浅拷贝)</span><br><span class="line"></span><br><span class="line">a = JSON.parse(JSON.stringify(b))  结果:a: [2,2,3,4,&#123;value: 321&#125;,5] b:结果:[1,2,3,4,&#123;value: 123&#125;] 完全深拷贝(无法拷贝函数)</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;深拷贝&quot;&gt;&lt;a href=&quot;#深拷贝&quot; class=&quot;headerlink&quot; title=&quot;深拷贝&quot;&gt;&lt;/a&gt;深拷贝&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;s
+      
+    
+    </summary>
+    
+      <category term="算法题实例" scheme="http://molb.me/categories/%E7%AE%97%E6%B3%95%E9%A2%98%E5%AE%9E%E4%BE%8B/"/>
+    
+    
+      <category term="算法题实例" scheme="http://molb.me/tags/%E7%AE%97%E6%B3%95%E9%A2%98%E5%AE%9E%E4%BE%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>长岛的雪</title>
+    <link href="http://molb.me/2018/03/09/essays/%E9%95%BF%E5%B2%9B%E7%9A%84%E9%9B%AA/"/>
+    <id>http://molb.me/2018/03/09/essays/长岛的雪/</id>
+    <published>2018-03-08T16:00:00.000Z</published>
+    <updated>2018-07-25T05:45:09.491Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="长岛的雪"><a href="#长岛的雪" class="headerlink" title="长岛的雪"></a>长岛的雪</h4><p>长岛的雪是帝吧的神文，讲述了对猫帝的讽刺，人的一生可能会有很多远大的抱负和理想，但是往往因为世俗的羁绊和附庸风雅的低级趣味而导致理想无法实现，最后许多自命不凡的人最后沦为碌碌无为的小人。<br>原文在帝吧里被删了，现在找的是豆瓣里的<a href="https://www.douban.com/group/topic/29899591/" target="_blank" rel="noopener">长岛的雪</a></p><blockquote><p>他依然向往着长岛的雪，依然向往着潘帕斯的风吟鸟唱，很久我才知道，原来，长岛是没有雪的。</p></blockquote><p>现实中的无奈迫使你放弃了梦想，但是又有什么关系，不管在怎样的处境都依然向往长岛的雪，留有一丝念想有何不可？<br>不管现实如何，那都是生活给予你的财富，在磨难中成长，你会坚强，但希望你始终保持心中的一点小美好。<br><a id="more"></a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;长岛的雪&quot;&gt;&lt;a href=&quot;#长岛的雪&quot; class=&quot;headerlink&quot; title=&quot;长岛的雪&quot;&gt;&lt;/a&gt;长岛的雪&lt;/h4&gt;&lt;p&gt;长岛的雪是帝吧的神文，讲述了对猫帝的讽刺，人的一生可能会有很多远大的抱负和理想，但是往往因为世俗的羁绊和附庸风雅的低级趣味而导致理想无法实现，最后许多自命不凡的人最后沦为碌碌无为的小人。&lt;br&gt;原文在帝吧里被删了，现在找的是豆瓣里的&lt;a href=&quot;https://www.douban.com/group/topic/29899591/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;长岛的雪&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;他依然向往着长岛的雪，依然向往着潘帕斯的风吟鸟唱，很久我才知道，原来，长岛是没有雪的。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;现实中的无奈迫使你放弃了梦想，但是又有什么关系，不管在怎样的处境都依然向往长岛的雪，留有一丝念想有何不可？&lt;br&gt;不管现实如何，那都是生活给予你的财富，在磨难中成长，你会坚强，但希望你始终保持心中的一点小美好。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="碎碎念" scheme="http://molb.me/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5/"/>
+    
+    
+      <category term="碎碎念" scheme="http://molb.me/tags/%E7%A2%8E%E7%A2%8E%E5%BF%B5/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>axios</title>
+    <link href="http://molb.me/2018/02/10/ajax/axios/"/>
+    <id>http://molb.me/2018/02/10/ajax/axios/</id>
+    <published>2018-02-09T16:00:00.000Z</published>
+    <updated>2018-07-25T05:44:46.597Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="axios简介"><a href="#axios简介" class="headerlink" title="axios简介"></a>axios简介</h4><p>首先这个东西肯定不好读(滑稽脸),当vue更新到2.0之后,作者就宣告不再对vue-resource更新,而是推荐的axios.于是就掀起了学习axios的热潮.注意:本文与<a href="https://www.kancloud.cn/yunye/axios/234845" target="_blank" rel="noopener">axios中文官网</a>大致相同,但是每个知识点都添加了实例,并且都通过了验证.</p><p><font color="red">axios</font>是一个基于Promise 用于浏览器和 nodejs 的 HTTP 客户端.特征如下:</p><blockquote><p>从浏览器中创建 XMLHttpRequests<br>从 node.js 创建 http 请求<br>支持 Promise API<br>拦截请求和响应<br>转换请求数据和响应数据<br>取消请求<br>自动转换 JSON 数据<br>客户端支持防御 XSRF</p></blockquote><h4 id="axios安装"><a href="#axios安装" class="headerlink" title="axios安装"></a>axios安装</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm安装:  npm install axios</span><br><span class="line">bower安装: bower install axios</span><br><span class="line">cdn代理: &lt;script src=&quot;https://cdn.bootcss.com/axios/0.17.1/axios.js&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure><a id="more"></a><h4 id="axios栗子"><a href="#axios栗子" class="headerlink" title="axios栗子"></a>axios栗子</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">get请求:</span><br><span class="line">axios.get(&apos;/users&apos;,&#123;</span><br><span class="line">       params: &#123;</span><br><span class="line">         ID: 123456</span><br><span class="line">       &#125;</span><br><span class="line">     &#125;)</span><br><span class="line">     .then((response) =&gt; (this.message = response))</span><br><span class="line">     .catch((error) =&gt; console.log(error))</span><br><span class="line">  </span><br><span class="line">post请求:</span><br><span class="line">axios.post(&apos;/user&apos;,&#123;</span><br><span class="line">        age: 18,</span><br><span class="line">        sex: &apos;man&apos;</span><br><span class="line">     &#125;)</span><br><span class="line">     .then(function(response)&#123;</span><br><span class="line">       console.log(response)</span><br><span class="line">     &#125;)</span><br><span class="line">     .catch(function(error) &#123;</span><br><span class="line">       console.log(error)</span><br><span class="line">     &#125;)</span><br><span class="line"></span><br><span class="line">并发请求:</span><br><span class="line">function getUser() &#123;</span><br><span class="line">  return axios.get(&apos;/user/123456&apos;)</span><br><span class="line">&#125;</span><br><span class="line">function getUserAll() &#123;</span><br><span class="line">  return axios.get(&apos;/user/123456/all&apos;)</span><br><span class="line">&#125;</span><br><span class="line">axios.all([getUser(), getUserAll()])</span><br><span class="line">     .then(axios.spread(function(acct, perms)&#123;</span><br><span class="line">       console.log(acct)       //Object  第一个请求的所有信息</span><br><span class="line">       console.log(perms)      //Object  第二个请求的所有信息 </span><br><span class="line">     &#125;))</span><br></pre></td></tr></table></figure><p><img src="/images/axios.jpg" alt="上栗并发请求的所有信息"></p><h4 id="axios-API"><a href="#axios-API" class="headerlink" title="axios API"></a>axios API</h4><p>可以通过向<font color="red">axios</font> 传递相关配置来创建请求<br>axios(config)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">// 发送post请求</span><br><span class="line">axios(&#123;</span><br><span class="line">  method: &apos;post&apos;</span><br><span class="line">  url: &apos;/user/123456&apos;</span><br><span class="line">  data: &#123;</span><br><span class="line">    name: &apos;zhang&apos;,</span><br><span class="line">    age: 18</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p><p>axios(url[,config])<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 发送get请求 (默认方法)</span><br><span class="line">axios(&apos;/user/123456&apos;)</span><br></pre></td></tr></table></figure></p><p>下面是一个栗子:axios请求api数据<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// html 可直接复制粘贴使用(注意,需有vue和axios依赖)</span><br><span class="line">&lt;div id=&quot;app&quot;&gt; </span><br><span class="line">  &#123;&#123;info&#125;&#125;</span><br><span class="line">  &lt;div v-for=&quot;currency in info&quot;&gt;</span><br><span class="line">    &#123;&#123;currency.description&#125;&#125;</span><br><span class="line">    &lt;span v-html=&quot;currency.symbol&quot;&gt;&lt;/span&gt;&#123;&#123; currency.rate_float | currencydecimal&#125;&#125;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">// js</span><br><span class="line">new Vue(&#123;</span><br><span class="line">  el: &apos;#app&apos;,</span><br><span class="line">  data () &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      info: null</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  filters: &#123;</span><br><span class="line">    currencydecimal (value) &#123;</span><br><span class="line">      return value.toFixed(2)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  mounted () &#123;</span><br><span class="line">    axios</span><br><span class="line">      .get(&apos;https://api.coindesk.com/v1/bpi/currentprice.json&apos;)</span><br><span class="line">      .then((response) =&gt; (this.info = response.data.bpi))</span><br><span class="line">      .catch(error =&gt; console.log(error))</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure><h4 id="请求方法的别名"><a href="#请求方法的别名" class="headerlink" title="请求方法的别名"></a>请求方法的别名</h4>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;axios简介&quot;&gt;&lt;a href=&quot;#axios简介&quot; class=&quot;headerlink&quot; title=&quot;axios简介&quot;&gt;&lt;/a&gt;axios简介&lt;/h4&gt;&lt;p&gt;首先这个东西肯定不好读(滑稽脸),当vue更新到2.0之后,作者就宣告不再对vue-resource更新,而是推荐的axios.于是就掀起了学习axios的热潮.注意:本文与&lt;a href=&quot;https://www.kancloud.cn/yunye/axios/234845&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;axios中文官网&lt;/a&gt;大致相同,但是每个知识点都添加了实例,并且都通过了验证.&lt;/p&gt;
+&lt;p&gt;&lt;font color=&quot;red&quot;&gt;axios&lt;/font&gt;是一个基于Promise 用于浏览器和 nodejs 的 HTTP 客户端.特征如下:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;从浏览器中创建 XMLHttpRequests&lt;br&gt;从 node.js 创建 http 请求&lt;br&gt;支持 Promise API&lt;br&gt;拦截请求和响应&lt;br&gt;转换请求数据和响应数据&lt;br&gt;取消请求&lt;br&gt;自动转换 JSON 数据&lt;br&gt;客户端支持防御 XSRF&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&quot;axios安装&quot;&gt;&lt;a href=&quot;#axios安装&quot; class=&quot;headerlink&quot; title=&quot;axios安装&quot;&gt;&lt;/a&gt;axios安装&lt;/h4&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;npm安装:  npm install axios&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;bower安装: bower install axios&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;cdn代理: &amp;lt;script src=&amp;quot;https://cdn.bootcss.com/axios/0.17.1/axios.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+      <category term="Ajax" scheme="http://molb.me/categories/Ajax/"/>
+    
+    
+      <category term="Ajax" scheme="http://molb.me/tags/Ajax/"/>
+    
+      <category term="跨域" scheme="http://molb.me/tags/%E8%B7%A8%E5%9F%9F/"/>
+    
+      <category term="Promise" scheme="http://molb.me/tags/Promise/"/>
+    
+      <category term="axios" scheme="http://molb.me/tags/axios/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Vue基础(三)</title>
+    <link href="http://molb.me/2018/01/12/vue/Vue%E5%9F%BA%E7%A1%80-3/"/>
+    <id>http://molb.me/2018/01/12/vue/Vue基础-3/</id>
+    <published>2018-01-11T16:00:00.000Z</published>
+    <updated>2019-06-28T07:12:08.973Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="Vue简介"><a href="#Vue简介" class="headerlink" title="Vue简介"></a>Vue简介</h4><p>vue.js是一套mvvm框架，vue的核心库只关注视图层，主要应用于SPA开发。首先了解什么是MVVM？<br><img src="/images/mvvm.png" alt="MVVM"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">View(视图) Model(模型)</span><br><span class="line">它们是双向绑定，在View中改变的会反馈到Model中，反之亦然。</span><br></pre></td></tr></table></figure></p><a id="more"></a>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;Vue简介&quot;&gt;&lt;a href=&quot;#Vue简介&quot; class=&quot;headerlink&quot; title=&quot;Vue简介&quot;&gt;&lt;/a&gt;Vue简介&lt;/h4&gt;&lt;p&gt;vue.js是一套mvvm框架，vue的核心库只关注视图层，主要应用于SPA开发。首先了解什么是MVVM？&lt;br&gt;&lt;img src=&quot;/images/mvvm.png&quot; alt=&quot;MVVM&quot;&gt;&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;View(视图) Model(模型)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;它们是双向绑定，在View中改变的会反馈到Model中，反之亦然。&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="vue" scheme="http://molb.me/categories/vue/"/>
+    
+    
+      <category term="Vue" scheme="http://molb.me/tags/Vue/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Vue基础(二)</title>
+    <link href="http://molb.me/2017/12/23/vue/Vue%E5%9F%BA%E7%A1%80-2/"/>
+    <id>http://molb.me/2017/12/23/vue/Vue基础-2/</id>
+    <published>2017-12-22T16:00:00.000Z</published>
+    <updated>2019-06-28T07:12:06.393Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="Vue简介"><a href="#Vue简介" class="headerlink" title="Vue简介"></a>Vue简介</h4><p>vue.js是一套mvvm框架，vue的核心库只关注视图层，主要应用于SPA开发。首先了解什么是MVVM？<br><img src="/images/mvvm.png" alt="MVVM"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">View(视图) Model(模型)</span><br><span class="line">它们是双向绑定，在View中改变的会反馈到Model中，反之亦然。</span><br></pre></td></tr></table></figure></p><a id="more"></a>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;Vue简介&quot;&gt;&lt;a href=&quot;#Vue简介&quot; class=&quot;headerlink&quot; title=&quot;Vue简介&quot;&gt;&lt;/a&gt;Vue简介&lt;/h4&gt;&lt;p&gt;vue.js是一套mvvm框架，vue的核心库只关注视图层，主要应用于SPA开发。首先了解什么是MVVM？&lt;br&gt;&lt;img src=&quot;/images/mvvm.png&quot; alt=&quot;MVVM&quot;&gt;&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;View(视图) Model(模型)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;它们是双向绑定，在View中改变的会反馈到Model中，反之亦然。&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="vue" scheme="http://molb.me/categories/vue/"/>
+    
+    
+      <category term="Vue" scheme="http://molb.me/tags/Vue/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Vue基础(一)</title>
+    <link href="http://molb.me/2017/12/09/vue/Vue%E5%9F%BA%E7%A1%80-1/"/>
+    <id>http://molb.me/2017/12/09/vue/Vue基础-1/</id>
+    <published>2017-12-08T16:00:00.000Z</published>
+    <updated>2019-06-28T07:12:02.805Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="Vue简介"><a href="#Vue简介" class="headerlink" title="Vue简介"></a>Vue简介</h4><p>vue.js是一套mvvm框架，vue的核心库只关注视图层，主要应用于SPA开发。首先了解什么是MVVM？<br><img src="/images/mvvm.png" alt="MVVM"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">View(视图) Model(模型)</span><br><span class="line">它们是双向绑定，在View中改变的会反馈到Model中，反之亦然。</span><br></pre></td></tr></table></figure></p><a id="more"></a>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;Vue简介&quot;&gt;&lt;a href=&quot;#Vue简介&quot; class=&quot;headerlink&quot; title=&quot;Vue简介&quot;&gt;&lt;/a&gt;Vue简介&lt;/h4&gt;&lt;p&gt;vue.js是一套mvvm框架，vue的核心库只关注视图层，主要应用于SPA开发。首先了解什么是MVVM？&lt;br&gt;&lt;img src=&quot;/images/mvvm.png&quot; alt=&quot;MVVM&quot;&gt;&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;View(视图) Model(模型)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;它们是双向绑定，在View中改变的会反馈到Model中，反之亦然。&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="vue" scheme="http://molb.me/categories/vue/"/>
+    
+    
+      <category term="Vue" scheme="http://molb.me/tags/Vue/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ESlint</title>
+    <link href="http://molb.me/2017/11/25/eslint/Eslint/"/>
+    <id>http://molb.me/2017/11/25/eslint/Eslint/</id>
+    <published>2017-11-24T16:00:00.000Z</published>
+    <updated>2018-07-24T03:56:47.112Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="ESlint简介"><a href="#ESlint简介" class="headerlink" title="ESlint简介"></a>ESlint简介</h4><p>什么是ESlint？借用官网的一句话就是：可组装的JavaScript和JSX检查工具；通俗点就是配置一套规则，然后Eslint按照规则对代码进行检测。具体可参考<a href="http://eslint.cn/" target="_blank" rel="noopener">ESLint官网</a><br>好处:</p><ol><li>统一代码风格，减少review成本和低级错误的出现</li><li>支持ES6精简产品代码，提高开发效率</li><li>插件丰富</li></ol><h4 id="ESlint配置"><a href="#ESlint配置" class="headerlink" title="ESlint配置"></a>ESlint配置</h4><p>可以配置一个独立的 .eslintrc.js文件，如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">rules: &#123;</span><br><span class="line">  // allow async-await</span><br><span class="line">  &apos;generator-star-spacing&apos;: &apos;off&apos;,</span><br><span class="line">  // allow debugger during development</span><br><span class="line">  &apos;no-debugger&apos;: process.env.NODE_ENV === &apos;production&apos; ? &apos;error&apos; : &apos;off&apos;</span><br><span class="line">  // 禁用标签语句(0关闭规则,1警告,2错误)</span><br><span class="line">  //&apos;no-labels&apos;: 0</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p>也可在package.json 文件里的 eslintConfig 字段指定配置<br><a id="more"></a></p><h4 id="ESlint规则"><a href="#ESlint规则" class="headerlink" title="ESlint规则"></a>ESlint规则</h4><p>在配置文件中，可自由添加规则，全部规则可查看<a href="http://eslint.cn/docs/rules/" target="_blank" rel="noopener">eslint 规则</a>；下面则是一些常用的配置规则。</p><h5 id="规则打开关闭"><a href="#规则打开关闭" class="headerlink" title="规则打开关闭"></a>规则打开关闭</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&quot;off&quot; 或 0 - 关闭规则</span><br><span class="line">&quot;warn&quot; 或 1 - 开启规则，使用警告级别的错误：warn (不会导致程序退出)</span><br><span class="line">&quot;error&quot; 或 2 - 开启规则，使用错误级别的错误：error (当被触发的时候，程序会退出)</span><br><span class="line">&#123;</span><br><span class="line">  &quot;rules&quot;: &#123;</span><br><span class="line">      &quot;eqeqeq&quot;: &quot;off&quot;,</span><br><span class="line">      &quot;curly&quot;: &quot;error&quot;,</span><br><span class="line">      &quot;quotes&quot;: [&quot;error&quot;, &quot;double&quot;]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h5 id="JavaScript代码逻辑错误有关"><a href="#JavaScript代码逻辑错误有关" class="headerlink" title="JavaScript代码逻辑错误有关"></a>JavaScript代码逻辑错误有关</h5><blockquote><p>no-empty  禁止出现空语句块<br>no-extra-semi 禁止不必要的分号<br>no-func-assign  禁止对function声明重新赋值<br>no-extra-semi 禁止不必要的分号<br>no-constant-condition 禁止在条件中使用常量表达式<br>no-unexpected-multiline 禁止出现令人困惑的多行表达式<br>no-regex-spaces 禁止正则表达式字面量中出现多个空格<br>no-irregular-whitespace 禁止在字符串和注释之外不规则的空白</p></blockquote><h5 id="关于最佳实践的"><a href="#关于最佳实践的" class="headerlink" title="关于最佳实践的"></a>关于最佳实践的</h5><blockquote><p>   no-extra-bind 禁止不必要的.bind() 调用<br>no-extra-label 禁用不必要的标签<br>no-fallthrough 禁止 case 语句落空<br>no-floating-decimal 禁止数字字面量中使用前导和末尾小数点<br>no-global-assign 禁止对原生对象或只读的全局对象进行赋值<br>no-multi-spaces 禁止使用多个空格<br>no-multi-str 禁止使用多行字符串</p></blockquote><h5 id="与变量声明有关"><a href="#与变量声明有关" class="headerlink" title="与变量声明有关"></a>与变量声明有关</h5><blockquote><p>no-undef 禁用未声明的变量，除非它们在 /<em>global </em>/ 注释中被提到<br>no-undef-init 禁止将变量初始化为 undefined<br>no-undefined 禁止将 undefined 作为标识符<br>no-unused-vars 禁止出现未使用过的变量<br>no-use-before-define 禁止在变量定义之前使用它们<br>no-label-var 不允许标签与变量同名</p></blockquote><h5 id="代码风格"><a href="#代码风格" class="headerlink" title="代码风格"></a>代码风格</h5><blockquote><p>array-bracket-newline 在数组开括号后和闭括号前强制换行<br>array-bracket-spacing 强制数组方括号中使用一致的空格<br>array-element-newline 强制数组元素间出现换行<br>block-spacing 禁止或强制在代码块中开括号前和闭括号后有空格<br>brace-style 强制在代码块中使用一致的大括号风格<br>camelcase 强制使用骆驼拼写法命名约定<br>capitalized-comments 强制或禁止对注释的第一个字母大写<br>comma-dangle 要求或禁止末尾逗号<br>comma-spacing 强制在逗号前后使用一致的空格<br>comma-style 强制使用一致的逗号风格<br>computed-property-spacing 强制在计算的属性的方括号中使用一致的空格</p></blockquote><h5 id="与ES6有关"><a href="#与ES6有关" class="headerlink" title="与ES6有关"></a>与ES6有关</h5><blockquote><p>generator-star-spacing 强制generator函数中 * 号周围使用一致的空格<br>no-class-assign 禁止修改类声明的变量<br>no-confusing-arrow 禁止在可能与比较操作符相混淆的地方使用箭头函数<br>no-const-assign 禁止修改const声明的变量<br>no-dupe-class-members 禁止类成员中出现重复的名称<br>no-duplicate-imports 禁止重复模块导入<br>no-new-symbol 禁止Symbolnew操作符和new一起使用<br>no-var 要求使用let或const而不是var</p></blockquote><h4 id="注释-让某部分eslint失效"><a href="#注释-让某部分eslint失效" class="headerlink" title="注释,让某部分eslint失效"></a>注释,让某部分eslint失效</h4><p>在js文件里,若想部分规则失效,可通过注释方法解决<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">/* eslint eqeqeq: &quot;off&quot;, curly: &quot;error&quot; */</span><br><span class="line">/* eslint eqeqeq: 0, curly: 2 */</span><br><span class="line">在这个例子里，效果一样，eqeqeq 规则被关闭，curly 规则被打开，定义为错误级别。</span><br></pre></td></tr></table></figure></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">整个文件范围内禁止规则出现警告</span><br><span class="line">/* eslint-disable */</span><br><span class="line">alert(&apos;foo&apos;);</span><br><span class="line"></span><br><span class="line">块注释来临时禁止规则出现警告</span><br><span class="line">/* eslint-disable */</span><br><span class="line">alert(&apos;foo&apos;);</span><br><span class="line">/* eslint-enable */</span><br><span class="line"></span><br><span class="line">块注释来临时禁止某个或者几个规则出现警告</span><br><span class="line">/* eslint-disable no-alert, no-console */</span><br><span class="line">alert(&apos;foo&apos;);</span><br><span class="line">console.log(&apos;bar&apos;);</span><br><span class="line">/* eslint-enable no-alert, no-console */</span><br><span class="line"></span><br><span class="line">行注释</span><br><span class="line">alert(&apos;foo&apos;); // eslint-disable-line</span><br><span class="line"></span><br><span class="line">// eslint-disable-next-line</span><br><span class="line">alert(&apos;foo&apos;);</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;ESlint简介&quot;&gt;&lt;a href=&quot;#ESlint简介&quot; class=&quot;headerlink&quot; title=&quot;ESlint简介&quot;&gt;&lt;/a&gt;ESlint简介&lt;/h4&gt;&lt;p&gt;什么是ESlint？借用官网的一句话就是：可组装的JavaScript和JSX检查工具；通俗点就是配置一套规则，然后Eslint按照规则对代码进行检测。具体可参考&lt;a href=&quot;http://eslint.cn/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;ESLint官网&lt;/a&gt;&lt;br&gt;好处:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;统一代码风格，减少review成本和低级错误的出现&lt;/li&gt;
+&lt;li&gt;支持ES6精简产品代码，提高开发效率&lt;/li&gt;
+&lt;li&gt;插件丰富&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&quot;ESlint配置&quot;&gt;&lt;a href=&quot;#ESlint配置&quot; class=&quot;headerlink&quot; title=&quot;ESlint配置&quot;&gt;&lt;/a&gt;ESlint配置&lt;/h4&gt;&lt;p&gt;可以配置一个独立的 .eslintrc.js文件，如：&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;rules: &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  // allow async-await&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;apos;generator-star-spacing&amp;apos;: &amp;apos;off&amp;apos;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  // allow debugger during development&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;apos;no-debugger&amp;apos;: process.env.NODE_ENV === &amp;apos;production&amp;apos; ? &amp;apos;error&amp;apos; : &amp;apos;off&amp;apos;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  // 禁用标签语句(0关闭规则,1警告,2错误)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  //&amp;apos;no-labels&amp;apos;: 0&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;也可在package.json 文件里的 eslintConfig 字段指定配置&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Eslint" scheme="http://molb.me/categories/Eslint/"/>
+    
+    
+      <category term="Eslint" scheme="http://molb.me/tags/Eslint/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Promise对象</title>
+    <link href="http://molb.me/2017/10/14/ajax/Promise/"/>
+    <id>http://molb.me/2017/10/14/ajax/Promise/</id>
+    <published>2017-10-13T16:00:00.000Z</published>
+    <updated>2018-07-26T09:27:15.877Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="Promise简介"><a href="#Promise简介" class="headerlink" title="Promise简介"></a>Promise简介</h4><p>Promise是异步编程的一种解决方案，比传统的解决方案—回调函数和事件——更合理和更强大。ES6 将其写进了语言标准，统一了用法，原生提供了Promise对象。具体可查看阮一峰老师的<a href="http://es6.ruanyifeng.com/#docs/promise" target="_blank" rel="noopener">ECMAScript 6 入门</a>，对es6进行了详细的讲解，不懂随时查查就行。<br>ES6 规定，<font color="red">Promise</font>对象是一个构造函数，用来生成<font color="red">Promise</font>实例。<br>下面是一个<font color="red">Promise</font>实例<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">const promise = new Promise(function(resolve, reject) &#123;</span><br><span class="line">  // ... some code</span><br><span class="line"></span><br><span class="line">  if (/* 异步操作成功 */)&#123;</span><br><span class="line">    resolve(value);</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">    reject(error);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p><a id="more"></a><h4 id="Promise结合Ajax"><a href="#Promise结合Ajax" class="headerlink" title="Promise结合Ajax"></a>Promise结合Ajax</h4><p>先来个简单的Promise Ajax实例<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">const getJSON = function(url) &#123;</span><br><span class="line">  const promise = new Promise(function(resolve, reject) &#123;</span><br><span class="line">    const handler = function() &#123;</span><br><span class="line">      if (this.readState === 4) &#123;</span><br><span class="line">        if (this.status === 200) &#123;</span><br><span class="line">          resolve(this.response)</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">          reject(new Error(this.statusText))  // this.status输出为状态码;this.statusText输出为ok or error</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    const client = new XMLHTTRequest()</span><br><span class="line">    client.onreadystatechange = handler</span><br><span class="line">    client.open(&apos;GET&apos;, url)</span><br><span class="line">    client.responseType = &apos;json&apos;</span><br><span class="line">    client.setRequestHeader(&apos;Accept&apos;, &apos;application/json&apos;)</span><br><span class="line">    client.send()</span><br><span class="line">  &#125;)</span><br><span class="line">  return promise</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">getJSON(&quot;/db.json&quot;).then(function(json) &#123;</span><br><span class="line">  console.log(&apos;请求到的内容: &apos; + json);  // JSON.stringify(json)</span><br><span class="line">&#125;, function(error) &#123;</span><br><span class="line">  console.error(&apos;出错了&apos;, error);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p><p>来到面试题<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">// 2 3 5 4 1</span><br><span class="line">setTimeout(function() &#123;</span><br><span class="line">  console.log(1)</span><br><span class="line">&#125;, 0);</span><br><span class="line">new Promise(function executor(resolve) &#123;</span><br><span class="line">  console.log(2);</span><br><span class="line">  for( var i=0 ; i&lt;10000 ; i++ ) &#123;</span><br><span class="line">    i == 9999 &amp;&amp; resolve();</span><br><span class="line">  &#125;</span><br><span class="line">  console.log(3);</span><br><span class="line">&#125;).then(function() &#123;</span><br><span class="line">  console.log(4);</span><br><span class="line">&#125;);</span><br><span class="line">console.log(5);</span><br></pre></td></tr></table></figure></p><p>更多进阶学习请前往<a href="http://es6.ruanyifeng.com/#docs/promise" target="_blank" rel="noopener">Promise对象</a><br>并且可以前往<a href="https://www.kancloud.cn/yunye/axios/234845" target="_blank" rel="noopener">axios中文文档</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;Promise简介&quot;&gt;&lt;a href=&quot;#Promise简介&quot; class=&quot;headerlink&quot; title=&quot;Promise简介&quot;&gt;&lt;/a&gt;Promise简介&lt;/h4&gt;&lt;p&gt;Promise是异步编程的一种解决方案，比传统的解决方案—回调函数和事件——更合理和更强大。ES6 将其写进了语言标准，统一了用法，原生提供了Promise对象。具体可查看阮一峰老师的&lt;a href=&quot;http://es6.ruanyifeng.com/#docs/promise&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;ECMAScript 6 入门&lt;/a&gt;，对es6进行了详细的讲解，不懂随时查查就行。&lt;br&gt;ES6 规定，&lt;font color=&quot;red&quot;&gt;Promise&lt;/font&gt;对象是一个构造函数，用来生成&lt;font color=&quot;red&quot;&gt;Promise&lt;/font&gt;实例。&lt;br&gt;下面是一个&lt;font color=&quot;red&quot;&gt;Promise&lt;/font&gt;实例&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;const promise = new Promise(function(resolve, reject) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  // ... some code&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  if (/* 异步操作成功 */)&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    resolve(value);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125; else &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    reject(error);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Ajax" scheme="http://molb.me/categories/Ajax/"/>
+    
+    
+      <category term="Ajax" scheme="http://molb.me/tags/Ajax/"/>
+    
+      <category term="跨域" scheme="http://molb.me/tags/%E8%B7%A8%E5%9F%9F/"/>
+    
+      <category term="Promise" scheme="http://molb.me/tags/Promise/"/>
+    
+      <category term="ES6" scheme="http://molb.me/tags/ES6/"/>
+    
+  </entry>
+  
+</feed>

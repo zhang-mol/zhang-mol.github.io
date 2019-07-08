@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/m.svg?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/m-32x32.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/m-16x16.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/m.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Ajax," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="molb's Notes" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="什么是Ajax？Javascript执行异步网络请求注意Ajax的跨域问题，若是本地页面ajax()请求本地页面，须通过服务器环境运行，比如：http ://127.0.0.1:8888/ajax/index.php。详情请跳转Ajax跨域问题。 Js原生Ajax浏览器上写Ajax时依靠的是XMLHttpRequest对象（低版本IE是ActiveXObject对象）123456789101112">
+<meta name="keywords" content="Ajax">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ajax请求">
+<meta property="og:url" content="http://molb.me/2017/02/26/ajax/Ajax请求/index.html">
+<meta property="og:site_name" content="molb&#39;s Notes">
+<meta property="og:description" content="什么是Ajax？Javascript执行异步网络请求注意Ajax的跨域问题，若是本地页面ajax()请求本地页面，须通过服务器环境运行，比如：http ://127.0.0.1:8888/ajax/index.php。详情请跳转Ajax跨域问题。 Js原生Ajax浏览器上写Ajax时依靠的是XMLHttpRequest对象（低版本IE是ActiveXObject对象）123456789101112">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-07-24T03:58:50.691Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Ajax请求">
+<meta name="twitter:description" content="什么是Ajax？Javascript执行异步网络请求注意Ajax的跨域问题，若是本地页面ajax()请求本地页面，须通过服务器环境运行，比如：http ://127.0.0.1:8888/ajax/index.php。详情请跳转Ajax跨域问题。 Js原生Ajax浏览器上写Ajax时依靠的是XMLHttpRequest对象（低版本IE是ActiveXObject对象）123456789101112">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: 'CCA5W16ZX9',
+      apiKey: '596be3161658f0c0d40b79b58d7b4996',
+      indexName: 'blog',
+      hits: {"per_page":6},
+      labels: {"input_placeholder":"搜索","hits_empty":"我们没有找到任何搜索结果: ${query}","hits_stats":"找到约 ${hits} 条结果，用时 ${time}ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://molb.me/2017/02/26/ajax/Ajax请求/"/>
+
+
+
+
+
+  <title>Ajax请求 | molb's Notes</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?b9e8c13baad34736ed768e6d653c6a51";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">molb's Notes</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Growth notes</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://molb.me/2017/02/26/ajax/Ajax请求/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZhangHeng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/headPortrait.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="molb's Notes">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Ajax请求</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-02-26T00:00:00+08:00">
+                2017-02-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Ajax/" itemprop="url" rel="index">
+                    <span itemprop="name">Ajax</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-eye"></i> 阅读次数
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                <span title="字数统计">
+                  1,400 (字)
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                <span title="阅读时长">
+                  6 (分)
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>什么是Ajax？Javascript执行异步网络请求<br>注意Ajax的跨域问题，若是本地页面ajax()请求本地页面，须通过服务器环境运行，比如：http ://127.0.0.1:8888/ajax/index.php。详情请跳转<a href="../Ajax跨域问题">Ajax跨域问题</a>。</p>
+<h4 id="Js原生Ajax"><a href="#Js原生Ajax" class="headerlink" title="Js原生Ajax"></a>Js原生Ajax</h4><p>浏览器上写Ajax时依靠的是XMLHttpRequest对象（低版本IE是ActiveXObject对象）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">// 最原始的ajax</span><br><span class="line">var http = null;</span><br><span class="line">if (window.XMLHttpRequest) &#123;</span><br><span class="line">  http = new XMLHttpRequest()</span><br><span class="line">&#125; else &#123;</span><br><span class="line">  http = new ActiveXObject(&apos;Microsoft.XMLHTTP&apos;)</span><br><span class="line">&#125;</span><br><span class="line">http.open(&apos;Get&apos;,url,true) //若是POST请求，则多一行代码（请求头）：http.setRequestHeader(&quot;Content-type&quot;,&quot;application/x-www-form-urlencoded&quot;);</span><br><span class="line">http.send()</span><br><span class="line">http.onreadystatechange = function () &#123;</span><br><span class="line">  if (http.readyState == 4) &#123;</span><br><span class="line">    if (http.status == 200) &#123;</span><br><span class="line">      console.log(&quot;成功&quot; + http.responseText)</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">      console.log(&quot;失败&quot;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">这里并没有进行函数包裹，可以对其进行传参。</span><br><span class="line">function Ajax (url,fnsuccess,fnfail) &#123;</span><br><span class="line">  // fnsuccess为成功时执行的回调函数</span><br><span class="line">  // fnfail为失败时执行的回调函数</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="Js原生Ajax封装"><a href="#Js原生Ajax封装" class="headerlink" title="Js原生Ajax封装"></a>Js原生Ajax封装</h4><p>作为一名前端，肯定是追加代码重用，越方便越好。下面是对ajax进行封装。<br><a id="more"></a></p>
+<h5 id="封装的目标"><a href="#封装的目标" class="headerlink" title="封装的目标"></a>封装的目标</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">function Ajax (url, params) &#123;</span><br><span class="line">  // specific code</span><br><span class="line">&#125;</span><br><span class="line">url： 请求的地址</span><br><span class="line">params 为一个对象，里面包含一些配置参数</span><br><span class="line">  data： 请求数据</span><br><span class="line">  type： 请求类型（post or get）默认为get</span><br><span class="line">  fnscccess： 请求成功时调用的回调函数</span><br><span class="line">  fnfail： 请求失败时调用的回调函数</span><br></pre></td></tr></table></figure>
+<h5 id="最终实现"><a href="#最终实现" class="headerlink" title="最终实现"></a>最终实现</h5><p>下面是完整的封装效果<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line">*Ajax封装</span><br><span class="line">*@param &#123;string&#125; url 请求的地址</span><br><span class="line">*@param &#123;object&#125; params 配置参数</span><br><span class="line">*   @config &#123;string&#125; params.type  请求类型,值可以是GET or POST,默认是GET</span><br><span class="line">*   @config &#123;object&#125; params.data 发送的数据</span><br><span class="line">*   @config &#123;object&#125; params.async 是否异步</span><br><span class="line">*   @config &#123;function&#125;  params.fnsuccess 请求成功时触发的回调函数</span><br><span class="line">*   @config &#123;function&#125; params.fnfail 请求失败时触发的回调函数</span><br><span class="line">*/</span><br><span class="line">function Ajax(url, params) &#123;</span><br><span class="line">  // 参数配置</span><br><span class="line">  params = params || &#123;&#125;  // 设置配置参数,默认值为&#123;&#125;</span><br><span class="line">  params.type = (params.type || &apos;GET&apos;).toUpperCase() // 设置请求方式,默认值为GET,并将其转化为大写</span><br><span class="line">  params.data = params.data || &#123;&#125;  // 设置数据,默认值为&#123;&#125;</span><br><span class="line">  params.async = params.async || true  // 设置是否异步</span><br><span class="line"></span><br><span class="line">  // 创建ajax请求</span><br><span class="line">  var xhr = null</span><br><span class="line">  if (windows.XMLHttpRequest) &#123;</span><br><span class="line">    xhr = new XMLHttpRequest() // ie6以上</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">    xhr = new ActiveXObject(&apos;Microsoft.XMLHTTP&apos;) // ie6</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  // 对数据进行处理</span><br><span class="line">  var data = processData(params.data)</span><br><span class="line">  function processData(data) &#123;</span><br><span class="line">    var arr = [];</span><br><span class="line">    for (var key in data) &#123;</span><br><span class="line">      // encodeURIComponent() 对URI进行编码</span><br><span class="line">      arr.push(encodeURIComponent(key)) + &apos;=&apos; + encodeURIComponent(data[key])</span><br><span class="line">    &#125;</span><br><span class="line">    // 增加随机数，防止缓存问题</span><br><span class="line">    arr.push(&apos;v=&apos; + getRandom())</span><br><span class="line">    return arr.join(&apos;&amp;&apos;)</span><br><span class="line">  &#125;</span><br><span class="line">    // 获取随机数</span><br><span class="line">  function getRandom() &#123;</span><br><span class="line">    return Math.floor(Math.random() * 1000 + 20)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  // 发送请求</span><br><span class="line">  if (params.type === &apos;GET&apos;) &#123;</span><br><span class="line">    xhr.open(&apos;params.type&apos;, url + &apos;?&apos; + data, params.async)</span><br><span class="line">    xhr.send(null)</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">    xhr.open(&apos;params.type&apos;, url, params.async)</span><br><span class="line">    // 设置提交时的请求类型</span><br><span class="line">    xhr.setRequestHeader(&apos;Content-type&apos;, &apos;application/x-www-form-urlencoded;charset=UTF-8&apos;)</span><br><span class="line">    xhr.send(data)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  // 接收返回</span><br><span class="line">  xhr.onreadystatechange = function () &#123;</span><br><span class="line">    if (xhr.readyState === 4) &#123;</span><br><span class="line">      if (xhr.status === 200) &#123;</span><br><span class="line">        params.fnsuccess &amp;&amp; params.fnsuccess(xhr.responseText)</span><br><span class="line">      &#125; else &#123;</span><br><span class="line">        params.fnfail &amp;&amp; params.fnfail(xhr.status)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h5 id="应用实例"><a href="#应用实例" class="headerlink" title="应用实例"></a>应用实例</h5><p>根据个人习惯，可以把url也作为params的一个参数。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Ajax(url,&#123;</span><br><span class="line">  type: &apos;GET&apos;,</span><br><span class="line">  data: &#123;name:&apos;zhang&apos;, age:&apos;18&apos;&#125;,</span><br><span class="line">  async: true,</span><br><span class="line">  fnsucess: function (res) &#123;</span><br><span class="line">    console.log(res)</span><br><span class="line">  &#125;,</span><br><span class="line">  fnfail: function (err) &#123;</span><br><span class="line">    console.log(err)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<h4 id="JQuery-ajax"><a href="#JQuery-ajax" class="headerlink" title="JQuery ajax"></a>JQuery ajax</h4><p>本文只提供实战中的应用，想具体深入的请点击<a href="http://api.jquery.com/jquery.ajax/" target="_blank" rel="noopener">jquery api文档英文版</a>，<a href="http://www.css88.com/jqapi-1.9/jQuery.ajax/" target="_blank" rel="noopener">api文档中文版</a>。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">// 以GET请求为例</span><br><span class="line">$.ajax(&#123;</span><br><span class="line">  type: &apos;GET&apos; // GET获取数据、POST提交数据</span><br><span class="line">  url: &apos;db.json&apos;</span><br><span class="line">  dataType: &apos;json&apos;</span><br><span class="line">  data： &#123;id: 1&#125;</span><br><span class="line">  success：function (data) &#123;</span><br><span class="line">    console.log(data)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<h4 id="JQuery-ajax-二次封装"><a href="#JQuery-ajax-二次封装" class="headerlink" title="JQuery ajax 二次封装"></a>JQuery ajax 二次封装</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// $.get(&quot;请求url&quot;,&quot;发送的数据对象&quot;,&quot;成功回调&quot;,&quot;返回数据类型&quot;)</span><br><span class="line">$.get(&apos;db.json&apos;,&apos;&#123;name:&apos;张三&apos;, age:18&#125;&apos;, function(data) &#123;</span><br><span class="line">  console.log(data)</span><br><span class="line">&#125;,&apos;json&apos;)</span><br><span class="line"></span><br><span class="line">$.post(&apos;db.json&apos;,&apos;&#123;name:&apos;张三&apos;, age:18&#125;&apos;, function(data) &#123;</span><br><span class="line">  console.log(data)</span><br><span class="line">&#125;,&apos;json&apos;)</span><br></pre></td></tr></table></figure>
+<h4 id="JQuery-ajax-基本进阶"><a href="#JQuery-ajax-基本进阶" class="headerlink" title="JQuery ajax 基本进阶"></a>JQuery ajax 基本进阶</h4><h5 id="序列化工具函数"><a href="#序列化工具函数" class="headerlink" title="序列化工具函数"></a>序列化工具函数</h5><p>ajax提交数据的时候，通常是提交一个表单，所以，序列化表单数据就非常有用，如：$(“form”).serialize()<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$(&quot;form&quot;).on(&apos;submit&apos;,function() &#123;</span><br><span class="line">  var url = this.action  // 获取表单的action</span><br><span class="line">  var formData = $(this).serialize()</span><br><span class="line">  $.post(url, formdata, function(data) &#123;</span><br><span class="line">    console.log(data)</span><br><span class="line">  &#125;,&apos;json&apos;)</span><br><span class="line">  return false // 阻止表单默认提交行为</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<h5 id="回调改成连写方式-done"><a href="#回调改成连写方式-done" class="headerlink" title="回调改成连写方式.done"></a>回调改成连写方式.done</h5><p>ajax请求成功通常是使用回调的方式处理返回数据，其实jquery中也可以使用连写方式而不是回调的方式。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// 该参数可以是一个函数或一个函数的数组。当延迟成功时，done中函数被调用。回调执行是依照他们添加的顺序。</span><br><span class="line">$.get(&quot;test.php&quot;).done(function() &#123;</span><br><span class="line">    // 延迟成功</span><br><span class="line">    alert(&quot;ok&quot;)</span><br><span class="line">&#125;).fail(function() &#123;</span><br><span class="line">    // 延迟失败</span><br><span class="line">    alert(&quot;$.get failed!&quot;)</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<h5 id="回调改成连写方式-then"><a href="#回调改成连写方式-then" class="headerlink" title="回调改成连写方式.then"></a>回调改成连写方式.then</h5><p>连写方式还有一个二合一的方法.then，.then还可以写多个，后面的.then可以使用前面.then中的结果。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$.get(&quot;test.php&quot;).then(</span><br><span class="line">    function() &#123;</span><br><span class="line">        //延迟成功</span><br><span class="line">    &#125;,</span><br><span class="line">    function() &#123;</span><br><span class="line">        //延迟失败</span><br><span class="line">    &#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure></p>
+<h5 id="JQuery-when方法"><a href="#JQuery-when方法" class="headerlink" title="JQuery.when方法"></a>JQuery.when方法</h5><p>提供一种方法来执行一个或多个对象的回调函数，延迟对象通常表示异步事件。 如果单一延迟传递给jQuery.when ，它是通过这个方法和延迟对象附加的其他方法可访问绑定的回调函数返回的，如defered.then 。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// 两个全部请求成功才会执行回调  此api在jquery api的 “工具”一栏下面有详细介绍</span><br><span class="line">$.when($.ajax(&quot;p1.php&quot;), $.ajax(&quot;p2.php&quot;))</span><br><span class="line">  .then(function()&#123;</span><br><span class="line">        //两个全部请求成功</span><br><span class="line">    &#125;, function()&#123;</span><br><span class="line">        //任何一个执行失败</span><br><span class="line">    &#125;)</span><br></pre></td></tr></table></figure></p>
+<p>此文基本进阶链接于：<a href="http://www.51xuediannao.com/javascript/jquery_ajax.html" target="_blank" rel="noopener">jquery一些高级用法</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Ajax/" rel="tag"># Ajax</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/02/12/javaScript/JavaScript的执行/" rel="next" title="JavaScript基础(一)--执行顺序">
+                <i class="fa fa-chevron-left"></i> JavaScript基础(一)--执行顺序
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/03/09/git/Git安装/" rel="prev" title="Git安装">
+                Git安装 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/headPortrait.jpg"
+                alt="ZhangHeng" />
+            
+              <p class="site-author-name" itemprop="name">ZhangHeng</p>
+              <p class="site-description motion-element" itemprop="description">言念君子 温其如玉</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">38</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/zhang-mol" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://twitter.com/zhang-mol" target="_blank" title="Twitter">
+                      
+                        <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://weibo.com/p/1005051921146507/home?from=page_100505&mod=TAB&is_all=1#place" target="_blank" title="Weibo">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://gitee.com/zhang-mol" target="_blank" title="Gitee">
+                      
+                        <i class="fa fa-fw fa-google"></i>Gitee</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Js原生Ajax"><span class="nav-text">Js原生Ajax</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Js原生Ajax封装"><span class="nav-text">Js原生Ajax封装</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#封装的目标"><span class="nav-text">封装的目标</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#最终实现"><span class="nav-text">最终实现</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#应用实例"><span class="nav-text">应用实例</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JQuery-ajax"><span class="nav-text">JQuery ajax</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JQuery-ajax-二次封装"><span class="nav-text">JQuery ajax 二次封装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JQuery-ajax-基本进阶"><span class="nav-text">JQuery ajax 基本进阶</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#序列化工具函数"><span class="nav-text">序列化工具函数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#回调改成连写方式-done"><span class="nav-text">回调改成连写方式.done</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#回调改成连写方式-then"><span class="nav-text">回调改成连写方式.then</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#JQuery-when方法"><span class="nav-text">JQuery.when方法</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2016 &ndash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZhangHeng</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 访问人数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 访问次数
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.4"></script>
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

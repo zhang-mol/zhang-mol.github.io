@@ -1061,7 +1061,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/08/20/sass/sass使用/" itemprop="url">Sass使用(一)</a></h1>
+                <a class="post-title-link" href="/2018/08/20/sass/sass使用/" itemprop="url">Sass使用</a></h1>
         
 
         <div class="post-meta">
@@ -1127,7 +1127,7 @@
                 </span>
                 
                 <span title="字数统计">
-                  0 (字)
+                  760 (字)
                 </span>
               
 
@@ -1141,7 +1141,7 @@
                 </span>
                 
                 <span title="阅读时长">
-                  1 (分)
+                  4 (分)
                 </span>
               
             </div>
@@ -1163,9 +1163,29 @@
 
       
         
-          
-            
-          
+          <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>css译为级联样式表，主要用来进行网页风格设计，只是一行行单纯的属性描述，写起来相当的费事，而且代码难易组织和维护。因此也就诞生了css预处理语言，目前较活跃的为：sass、less、stylus。这些预处理语言能让你的CSS更加简洁、适应性更强、可读性更佳，更易于代码的维护等诸多好处。三者差异不大，熟悉一门即可。</p>
+<h3 id="入门（个人常用）更多扩展sass中文文档"><a href="#入门（个人常用）更多扩展sass中文文档" class="headerlink" title="入门（个人常用）更多扩展sass中文文档"></a>入门（个人常用）更多扩展<a href="https://www.sass.hk/docs/" target="_blank" rel="noopener">sass中文文档</a></h3><h4 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">通过$前缀来表示变量，一旦变更，只需改变变量对应的值，大大缩减修改时间。</span><br><span class="line">$color-222: #222;</span><br><span class="line"></span><br><span class="line">div &#123;</span><br><span class="line">  color: $color-222</span><br><span class="line">&#125;</span><br><span class="line">等价于</span><br><span class="line">div &#123;</span><br><span class="line">  color: #222</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="嵌套"><a href="#嵌套" class="headerlink" title="嵌套"></a>嵌套</h4><ol>
+<li><p>父选择器的标识符&amp;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">div &#123;              </span><br><span class="line">  &amp;:span &#123;    </span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">等价于</span><br><span class="line">div span &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>群组选择器</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">.container &#123;</span><br><span class="line">  h1, h2, h3 &#123;margin-bottom: .8em&#125;</span><br><span class="line">&#125;</span><br><span class="line">等价于</span><br><span class="line">.container h1, .container h2, .container h3 &#123; margin-bottom: .8em &#125;</span><br><span class="line"></span><br><span class="line">nav, aside &#123;</span><br><span class="line">  a &#123;color: blue&#125;</span><br><span class="line">&#125;</span><br><span class="line">等价于</span><br><span class="line">nav a, aside a &#123;color: blue&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>子组合选择器和同层组合选择器：&gt;、+和~</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">子组合选择器&gt;  选择一个元素的直接子元素</span><br><span class="line">同层相邻组合选择器+  选择一个元素后紧跟的某元素</span><br><span class="line">同层全体组合选择器~  选择所有跟在一个元素后的同层某元素</span><br><span class="line"></span><br><span class="line">article &gt; section &#123; border: 1px solid #ccc &#125;</span><br><span class="line">header + p &#123; font-size: 1.1em &#125;</span><br><span class="line">article ~ article &#123; border-top: 1px dashed #ccc &#125;</span><br><span class="line"></span><br><span class="line">组合使用</span><br><span class="line">article &#123;</span><br><span class="line">  ~ article &#123; border-top: 1px dashed #ccc &#125;</span><br><span class="line">  &gt; section &#123; background: #eee &#125;</span><br><span class="line">  dl &gt; &#123;</span><br><span class="line">    dt &#123; color: #333 &#125;</span><br><span class="line">    dd &#123; color: #555 &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  nav + &amp; &#123; margin-top: 0 &#125;</span><br><span class="line">&#125;</span><br><span class="line">等价于</span><br><span class="line">article ~ article &#123; border-top: 1px dashed #ccc &#125;</span><br><span class="line">article &gt; footer &#123; background: #eee &#125;</span><br><span class="line">article dl &gt; dt &#123; color: #333 &#125;</span><br><span class="line">article dl &gt; dd &#123; color: #555 &#125;</span><br><span class="line">nav + article &#123; margin-top: 0 &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>属性嵌套<br>嵌套属性的规则是这样的：把属性名从中划线-的地方断开，在根属性后边添加一个冒号:，紧跟一个{ }块，把子属性部分写在这个{ }块中。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">nav &#123;</span><br><span class="line">  border: &#123;</span><br><span class="line">    style: solid;</span><br><span class="line">    width: 1px;</span><br><span class="line">    color: #ccc;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">等价于</span><br><span class="line">nav &#123;</span><br><span class="line">  border-style: solid;</span><br><span class="line">  border-width: 1px;</span><br><span class="line">  border-color: #ccc;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">nav &#123;</span><br><span class="line">  border: 1px solid #ccc &#123;</span><br><span class="line">    left: 0px;</span><br><span class="line">    right: 0px;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">等价于 </span><br><span class="line">nav &#123;</span><br><span class="line">  border: 1px solid #ccc;</span><br><span class="line">  border-left: 0px;</span><br><span class="line">  border-right: 0px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/08/20/sass/sass使用/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>

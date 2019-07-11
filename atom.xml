@@ -52,11 +52,36 @@
   </entry>
   
   <entry>
+    <title>Vue-cli3脚手架</title>
+    <link href="http://molb.me/2019/05/23/vue/Vue-cli3/"/>
+    <id>http://molb.me/2019/05/23/vue/Vue-cli3/</id>
+    <published>2019-05-22T16:00:00.000Z</published>
+    <updated>2019-06-28T08:58:18.477Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="vue-ui的使用"><a href="#vue-ui的使用" class="headerlink" title="vue-ui的使用"></a>vue-ui的使用</h4><p>安装vue-ui时，若是官网初始列子，npm run serve时会报注意错误！<br><img src="/uploads/vue-ui.png" alt="vue-ui"></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h4 id=&quot;vue-ui的使用&quot;&gt;&lt;a href=&quot;#vue-ui的使用&quot; class=&quot;headerlink&quot; title=&quot;vue-ui的使用&quot;&gt;&lt;/a&gt;vue-ui的使用&lt;/h4&gt;&lt;p&gt;安装vue-ui时，若是官网初始列子，npm run serve时会报注意错误！&lt;b
+      
+    
+    </summary>
+    
+      <category term="vue" scheme="http://molb.me/categories/vue/"/>
+    
+    
+      <category term="Vue" scheme="http://molb.me/tags/Vue/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Vue首屏加载优化</title>
-    <link href="http://molb.me/2019/06/28/vue/Vue%E9%A6%96%E5%B1%8F%E5%8A%A0%E8%BD%BD%E4%BC%98%E5%8C%96/"/>
-    <id>http://molb.me/2019/06/28/vue/Vue首屏加载优化/</id>
-    <published>2019-06-27T16:00:00.000Z</published>
-    <updated>2019-06-28T08:54:36.597Z</updated>
+    <link href="http://molb.me/2019/04/19/vue/Vue%E9%A6%96%E5%B1%8F%E5%8A%A0%E8%BD%BD%E4%BC%98%E5%8C%96/"/>
+    <id>http://molb.me/2019/04/19/vue/Vue首屏加载优化/</id>
+    <published>2019-04-18T16:00:00.000Z</published>
+    <updated>2019-07-11T07:04:53.138Z</updated>
     
     <content type="html"><![CDATA[<h4 id="Vue首屏加载优化"><a href="#Vue首屏加载优化" class="headerlink" title="Vue首屏加载优化"></a>Vue首屏加载优化</h4><p>前言: vue单页应用带来便捷，同时也必须加载完js才渲染，导致首次加载js过大，会出现首屏白屏等问题！<br>在此感谢掘金大佬提供了具体方法: Vue SPA 首屏加载优化实践(<a href="https://juejin.im/post/5a291092518825293b50366d" target="_blank" rel="noopener">https://juejin.im/post/5a291092518825293b50366d</a>)</p><h5 id="直接使用cdn引入第三方库"><a href="#直接使用cdn引入第三方库" class="headerlink" title="直接使用cdn引入第三方库"></a>直接使用cdn引入第三方库</h5><ol><li>首先在模板文件index.html中通过script标签引入库</li><li><p>修改vue.config.js中的webpack配置(vue-cli3中配置,修改后要重启否则会报错误)</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">module.exports = &#123;</span><br><span class="line">  configureWebpack: &#123;</span><br><span class="line">    externals: &#123;</span><br><span class="line">      &apos;vue&apos;: &apos;Vue&apos;,</span><br><span class="line">      &apos;vuex&apos;: &apos;Vuex&apos;,</span><br><span class="line">      &apos;vue-router&apos;: &apos;VueRouter&apos;,</span><br><span class="line">      &apos;element-ui&apos;: &apos;ELEMENT&apos;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li><li><p>修改src/router.js</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">注释本地引入</span><br><span class="line">// import Vue from &apos;vue&apos;</span><br><span class="line">import VueRouter from &apos;vue-router&apos;</span><br><span class="line">import Home from &apos;./views/Home.vue&apos;</span><br><span class="line">// Vue.use(Router)</span><br></pre></td></tr></table></figure></li><li><p>修改src/store.js(同上)</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// import Vue from &apos;vue&apos;</span><br><span class="line">import Vuex from &apos;vuex&apos;</span><br><span class="line"></span><br><span class="line">// Vue.use(Vuex)</span><br></pre></td></tr></table></figure></li><li><p>修改src/main.js</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">import &apos;babel-polyfill&apos;</span><br><span class="line">import Vue from &apos;vue&apos;</span><br><span class="line">import App from &apos;./App&apos;</span><br><span class="line">import axios from &apos;axios&apos;</span><br><span class="line">import store from &apos;./store&apos;</span><br><span class="line">import router from &apos;./router&apos;</span><br><span class="line">import &#123;sync&#125; from &apos;vuex-router-sync&apos;</span><br><span class="line">import ELEMENT from &apos;element-ui&apos;</span><br><span class="line">// import &apos;element-ui/lib/theme-chalk/index.css&apos;</span><br><span class="line"></span><br><span class="line">Vue.config.productionTip = false</span><br><span class="line"></span><br><span class="line">Vue.use(ELEMENT)</span><br><span class="line">Vue.prototype.$http = axios</span><br><span class="line"></span><br><span class="line">new Vue(&#123;</span><br><span class="line">  el: &apos;#app&apos;,</span><br><span class="line">  store,</span><br><span class="line">  router,</span><br><span class="line">  template: &apos;&lt;App/&gt;&apos;,</span><br><span class="line">  components: &#123; App &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></li></ol><blockquote><p>注意！这里 element-ui 变量名要使用 ELEMENT，因为element-ui的 umd 模块名是 ELEMENT；此时运行会提示$router重复定义错误,需重新启动项目</p></blockquote><a id="more"></a><h5 id="Nginx-开启-gzip"><a href="#Nginx-开启-gzip" class="headerlink" title="Nginx 开启 gzip"></a>Nginx 开启 gzip</h5><p>前言: 本人使用的是PHPstudy，默认选择的是Apache服务器，so先进行切换，点击运行模式旁边的-切换版本即可！</p><ol><li><p>Nginx开启gzip，修改nginx配置文件 nginx.conf:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">http &#123;   </span><br><span class="line">   ...        </span><br><span class="line">  gzip on;</span><br><span class="line">  gzip_min_length    1k;</span><br><span class="line">  gzip_buffers    4  16k;</span><br><span class="line">  gzip_http_version  1.1; </span><br><span class="line">  gzip_comp_level    2; # 压缩级别    </span><br><span class="line">  # 要压缩的mine类型gzip_types  text/plain application/javascript application/x-javascript text/javascript text/css application/xml application/xml+rss image/jpeg image/gif image/png image/svg+xml;    </span><br><span class="line">  gzip_vary  off; </span><br><span class="line">  gzip_proxied  expired no-cache no-store private auth;</span><br><span class="line">  gzip_disable  &quot;MSIE [1-6]\.&quot;; # IE6不支持gzip        </span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li><li><p>同时在nginx.conf也要配置server(服务器项目在刷新当前页时会出现404错误),同时需要修改host文件<br>ps: nginx配置文件是ngins.conf,Apache是vhoss.ini</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">服务器项目配置:</span><br><span class="line">server_name  www.lab2.com;</span><br><span class="line">root    &quot;F:/GitProject/robotcat_www/dist&quot;;</span><br><span class="line"></span><br><span class="line">location / &#123;</span><br><span class="line">        try_files $uri $uri/ @router;</span><br><span class="line">  #autoindex  off;</span><br><span class="line">    &#125;</span><br><span class="line">location @router &#123;</span><br><span class="line">  rewrite ^.*$ /index.html last;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li></ol><p><img src="/uploads/server.jpg" alt="server"></p><p>Apache的配置:<br><img src="/uploads/apache.jpg" alt="Apache"></p><h5 id="相关其他使用"><a href="#相关其他使用" class="headerlink" title="相关其他使用"></a>相关其他使用</h5><ol><li>vue devtools工具(cdn引入时配置)<br><img src="/uploads/devtools.jpg" alt="devtools配置"></li><li>安装抓包工具Fiddler 与 http协议调试工具HttpDebug<br>两个软件直接安装即可,查看包的相关信息!<br>HttpDebug:<br><img src="/uploads/httpdebug.jpg" alt="httpdebug"><br>Fiddler:(none:代表没有gzip的文件)<br><img src="/uploads/fiddler.jpg" alt="fiddler"></li></ol>]]></content>
     
@@ -92,64 +117,11 @@
   </entry>
   
   <entry>
-    <title>Vue-cli3脚手架</title>
-    <link href="http://molb.me/2019/05/23/vue/Vue-cli3/"/>
-    <id>http://molb.me/2019/05/23/vue/Vue-cli3/</id>
-    <published>2019-05-22T16:00:00.000Z</published>
-    <updated>2019-06-28T08:58:18.477Z</updated>
-    
-    <content type="html"><![CDATA[<h4 id="vue-ui的使用"><a href="#vue-ui的使用" class="headerlink" title="vue-ui的使用"></a>vue-ui的使用</h4><p>安装vue-ui时，若是官网初始列子，npm run serve时会报注意错误！<br><img src="/uploads/vue-ui.png" alt="vue-ui"></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h4 id=&quot;vue-ui的使用&quot;&gt;&lt;a href=&quot;#vue-ui的使用&quot; class=&quot;headerlink&quot; title=&quot;vue-ui的使用&quot;&gt;&lt;/a&gt;vue-ui的使用&lt;/h4&gt;&lt;p&gt;安装vue-ui时，若是官网初始列子，npm run serve时会报注意错误！&lt;b
-      
-    
-    </summary>
-    
-      <category term="vue" scheme="http://molb.me/categories/vue/"/>
-    
-    
-      <category term="Vue" scheme="http://molb.me/tags/Vue/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>HTML5布局之路(一)</title>
-    <link href="http://molb.me/2018/08/21/web/Html5%E5%B8%83%E5%B1%80/"/>
-    <id>http://molb.me/2018/08/21/web/Html5布局/</id>
-    <published>2018-08-20T16:00:00.000Z</published>
-    <updated>2018-08-21T07:22:28.394Z</updated>
-    
-    <content type="html"><![CDATA[<p>出来参加工作也有一段时间了，公司特意为it员工买了书，虽然html已是很熟悉了，但是重新看一遍还是颇有收获的。</p><h4 id="网站开发流程"><a href="#网站开发流程" class="headerlink" title="网站开发流程"></a>网站开发流程</h4><p>一个网站从需求的产生到广为人知，大致需要经历5个阶段，即网站需求分析、网站技术分析、网站页面策划、网站设计开发、网站测试改进。前端开发人员负责后两个阶段：开发和测试。</p><h4 id="HTML5相关了解"><a href="#HTML5相关了解" class="headerlink" title="HTML5相关了解"></a>HTML5相关了解</h4><ol><li>网页 = 结构 + 表现 + 行为<br>HTML5 = <font color="red">HTML</font> + <font color="red">CSS</font> + <font color="red">JavaScript</font><br><font color="red">HTML</font>：超文本标记语言，用于构建网页的结构。<br><font color="red">CSS</font>：层叠样式表，用于处理网页标签的样式。<br><font color="red">JavaScript</font>：一种脚本语言，用于处理网页中标签的行为。</li><li>&lt;!doctype html&gt;<br>doctype是document type(文档类型的缩写),主要声明页面的文档类型,告知浏览器当前的类型是html,从而以合适的方式加载。当前使用的是html5.0版本，声明是：&lt;!doctype html&gt;<br>扩展：html4.01文档声明类型主要如下：过渡定义类型、严格定义类型、框架定义类型。<a id="more"></a></li><li>meta元信息<br>meta是用来在html文档中模拟http的响应头报文，meta属性有两种：name和http-equiv。在此主要介绍属性对应常用的子属性。<br>name属性：<br>&emsp;generator：代码的生成工具。<br>&emsp;keywords：关键词，用于搜索引擎<br>&emsp;description：描述信息，介绍网页的主要内容是什么<br>&emsp;author：作者<br>&emsp;copyright：版权所属<br>&emsp;robots：机器人，用于向搜索引擎说明文件的检索方式，即哪些页面需要索引，哪些不需要。常用值：all、none、index、noindex、follow、nofollow。<br>http-equiv属性:<br>&emsp;content-type：设置网页内容的编码类型<br>&emsp;content-language：说明网页所使用的语言<br>&emsp;refresh：用于定时让网页在指定时间内刷新或跳转到其他页面。<br>&emsp;expires：设定网页的到期时间，一旦过期需要到服务器重新调用，必须是GMT时间格式<br>&emsp;set-cookie：设置cookie的过期时间<br>&emsp;windows-target：告知网页在当前窗口以独立页面显示，可以防止页面被当做frame页调用，即防止钓鱼。</li></ol>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;出来参加工作也有一段时间了，公司特意为it员工买了书，虽然html已是很熟悉了，但是重新看一遍还是颇有收获的。&lt;/p&gt;
-&lt;h4 id=&quot;网站开发流程&quot;&gt;&lt;a href=&quot;#网站开发流程&quot; class=&quot;headerlink&quot; title=&quot;网站开发流程&quot;&gt;&lt;/a&gt;网站开发流程&lt;/h4&gt;&lt;p&gt;一个网站从需求的产生到广为人知，大致需要经历5个阶段，即网站需求分析、网站技术分析、网站页面策划、网站设计开发、网站测试改进。前端开发人员负责后两个阶段：开发和测试。&lt;/p&gt;
-&lt;h4 id=&quot;HTML5相关了解&quot;&gt;&lt;a href=&quot;#HTML5相关了解&quot; class=&quot;headerlink&quot; title=&quot;HTML5相关了解&quot;&gt;&lt;/a&gt;HTML5相关了解&lt;/h4&gt;&lt;ol&gt;
-&lt;li&gt;网页 = 结构 + 表现 + 行为&lt;br&gt;HTML5 = &lt;font color=&quot;red&quot;&gt;HTML&lt;/font&gt; + &lt;font color=&quot;red&quot;&gt;CSS&lt;/font&gt; + &lt;font color=&quot;red&quot;&gt;JavaScript&lt;/font&gt;&lt;br&gt;&lt;font color=&quot;red&quot;&gt;HTML&lt;/font&gt;：超文本标记语言，用于构建网页的结构。&lt;br&gt;&lt;font color=&quot;red&quot;&gt;CSS&lt;/font&gt;：层叠样式表，用于处理网页标签的样式。&lt;br&gt;&lt;font color=&quot;red&quot;&gt;JavaScript&lt;/font&gt;：一种脚本语言，用于处理网页中标签的行为。&lt;/li&gt;
-&lt;li&gt;&amp;lt;!doctype html&amp;gt;&lt;br&gt;doctype是document type(文档类型的缩写),主要声明页面的文档类型,告知浏览器当前的类型是html,从而以合适的方式加载。当前使用的是html5.0版本，声明是：&amp;lt;!doctype html&amp;gt;&lt;br&gt;扩展：html4.01文档声明类型主要如下：过渡定义类型、严格定义类型、框架定义类型。
-    
-    </summary>
-    
-      <category term="HTML5" scheme="http://molb.me/categories/HTML5/"/>
-    
-    
-      <category term="Web" scheme="http://molb.me/tags/Web/"/>
-    
-      <category term="HTML5" scheme="http://molb.me/tags/HTML5/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Sass使用</title>
-    <link href="http://molb.me/2018/08/20/sass/sass%E4%BD%BF%E7%94%A8/"/>
-    <id>http://molb.me/2018/08/20/sass/sass使用/</id>
-    <published>2018-08-19T16:00:00.000Z</published>
-    <updated>2019-07-10T08:02:18.964Z</updated>
+    <link href="http://molb.me/2018/10/20/sass/sass%E4%BD%BF%E7%94%A8/"/>
+    <id>http://molb.me/2018/10/20/sass/sass使用/</id>
+    <published>2018-10-19T16:00:00.000Z</published>
+    <updated>2019-07-11T07:03:35.943Z</updated>
     
     <content type="html"><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>css译为级联样式表，主要用来进行网页风格设计，只是一行行单纯的属性描述，写起来相当的费事，而且代码难易组织和维护。因此也就诞生了css预处理语言，目前较活跃的为：sass、less、stylus。这些预处理语言能让你的CSS更加简洁、适应性更强、可读性更佳，更易于代码的维护等诸多好处。三者差异不大，熟悉一门即可。</p><h3 id="入门（个人常用）更多扩展sass中文文档"><a href="#入门（个人常用）更多扩展sass中文文档" class="headerlink" title="入门（个人常用）更多扩展sass中文文档"></a>入门（个人常用）更多扩展<a href="https://www.sass.hk/docs/" target="_blank" rel="noopener">sass中文文档</a></h3><h4 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">通过$前缀来表示变量，一旦变更，只需改变变量对应的值，大大缩减修改时间。</span><br><span class="line">$color-222: #222;</span><br><span class="line"></span><br><span class="line">div &#123;</span><br><span class="line">  color: $color-222</span><br><span class="line">&#125;</span><br><span class="line">等价于</span><br><span class="line">div &#123;</span><br><span class="line">  color: #222</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h4 id="嵌套"><a href="#嵌套" class="headerlink" title="嵌套"></a>嵌套</h4><ol><li><p>父选择器的标识符&amp;</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">div &#123;              </span><br><span class="line">  &amp;:span &#123;    </span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">等价于</span><br><span class="line">div span &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li><li><p>群组选择器</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">.container &#123;</span><br><span class="line">  h1, h2, h3 &#123;margin-bottom: .8em&#125;</span><br><span class="line">&#125;</span><br><span class="line">等价于</span><br><span class="line">.container h1, .container h2, .container h3 &#123; margin-bottom: .8em &#125;</span><br><span class="line"></span><br><span class="line">nav, aside &#123;</span><br><span class="line">  a &#123;color: blue&#125;</span><br><span class="line">&#125;</span><br><span class="line">等价于</span><br><span class="line">nav a, aside a &#123;color: blue&#125;</span><br></pre></td></tr></table></figure></li><li><p>子组合选择器和同层组合选择器：&gt;、+和~</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">子组合选择器&gt;  选择一个元素的直接子元素</span><br><span class="line">同层相邻组合选择器+  选择一个元素后紧跟的某元素</span><br><span class="line">同层全体组合选择器~  选择所有跟在一个元素后的同层某元素</span><br><span class="line"></span><br><span class="line">article &gt; section &#123; border: 1px solid #ccc &#125;</span><br><span class="line">header + p &#123; font-size: 1.1em &#125;</span><br><span class="line">article ~ article &#123; border-top: 1px dashed #ccc &#125;</span><br><span class="line"></span><br><span class="line">组合使用</span><br><span class="line">article &#123;</span><br><span class="line">  ~ article &#123; border-top: 1px dashed #ccc &#125;</span><br><span class="line">  &gt; section &#123; background: #eee &#125;</span><br><span class="line">  dl &gt; &#123;</span><br><span class="line">    dt &#123; color: #333 &#125;</span><br><span class="line">    dd &#123; color: #555 &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  nav + &amp; &#123; margin-top: 0 &#125;</span><br><span class="line">&#125;</span><br><span class="line">等价于</span><br><span class="line">article ~ article &#123; border-top: 1px dashed #ccc &#125;</span><br><span class="line">article &gt; footer &#123; background: #eee &#125;</span><br><span class="line">article dl &gt; dt &#123; color: #333 &#125;</span><br><span class="line">article dl &gt; dd &#123; color: #555 &#125;</span><br><span class="line">nav + article &#123; margin-top: 0 &#125;</span><br></pre></td></tr></table></figure></li><li><p>属性嵌套<br>嵌套属性的规则是这样的：把属性名从中划线-的地方断开，在根属性后边添加一个冒号:，紧跟一个{ }块，把子属性部分写在这个{ }块中。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">nav &#123;</span><br><span class="line">  border: &#123;</span><br><span class="line">    style: solid;</span><br><span class="line">    width: 1px;</span><br><span class="line">    color: #ccc;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">等价于</span><br><span class="line">nav &#123;</span><br><span class="line">  border-style: solid;</span><br><span class="line">  border-width: 1px;</span><br><span class="line">  border-color: #ccc;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">nav &#123;</span><br><span class="line">  border: 1px solid #ccc &#123;</span><br><span class="line">    left: 0px;</span><br><span class="line">    right: 0px;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">等价于 </span><br><span class="line">nav &#123;</span><br><span class="line">  border: 1px solid #ccc;</span><br><span class="line">  border-left: 0px;</span><br><span class="line">  border-right: 0px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li></ol><a id="more"></a><h4 id="混合mixin"><a href="#混合mixin" class="headerlink" title="混合mixin"></a>混合mixin</h4><p>可插入参数，甚至是默认参数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">$color-yellow: yellow;</span><br><span class="line">$color-red: red;</span><br><span class="line">$color-pink: pink;</span><br><span class="line">@mixin btn($color1, $color2: $color-red, $color3: $color-pink, $wd: &apos;2px&apos;) &#123;</span><br><span class="line">  color: $color1;</span><br><span class="line">  background: $color2;</span><br><span class="line">  border: $wd solid $color3</span><br><span class="line">&#125;</span><br><span class="line">div &#123;</span><br><span class="line">  button &#123;</span><br><span class="line">    @include btn(yellow)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">等价于</span><br><span class="line">div &#123;</span><br><span class="line">  button &#123;</span><br><span class="line">    color: yellow;</span><br><span class="line">    background: red;</span><br><span class="line">    border: 2px solid pink;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><h4 id="选择器继承"><a href="#选择器继承" class="headerlink" title="选择器继承"></a>选择器继承</h4><p>选择器继承是说一个选择器可以继承为另一个选择器定义的所有样式。这个通过@extend语法实现<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">//通过选择器继承继承样式</span><br><span class="line">.error &#123;</span><br><span class="line">  border: 1px solid red;</span><br><span class="line">  background-color: #fdd;</span><br><span class="line">&#125;</span><br><span class="line">.seriousError &#123;</span><br><span class="line">  @extend .error;</span><br><span class="line">  border-width: 3px;</span><br><span class="line">&#125;</span><br><span class="line">等价于</span><br><span class="line">.seriousError &#123;</span><br><span class="line">  border: 1px solid red;</span><br><span class="line">  background-color: #fdd;</span><br><span class="line">  border-width: 3px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>]]></content>
     
@@ -180,6 +152,34 @@
       <category term="Sass" scheme="http://molb.me/tags/Sass/"/>
     
       <category term="CSS" scheme="http://molb.me/tags/CSS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>HTML5布局之路(一)</title>
+    <link href="http://molb.me/2018/08/21/web/Html5%E5%B8%83%E5%B1%80/"/>
+    <id>http://molb.me/2018/08/21/web/Html5布局/</id>
+    <published>2018-08-20T16:00:00.000Z</published>
+    <updated>2018-08-21T07:22:28.394Z</updated>
+    
+    <content type="html"><![CDATA[<p>出来参加工作也有一段时间了，公司特意为it员工买了书，虽然html已是很熟悉了，但是重新看一遍还是颇有收获的。</p><h4 id="网站开发流程"><a href="#网站开发流程" class="headerlink" title="网站开发流程"></a>网站开发流程</h4><p>一个网站从需求的产生到广为人知，大致需要经历5个阶段，即网站需求分析、网站技术分析、网站页面策划、网站设计开发、网站测试改进。前端开发人员负责后两个阶段：开发和测试。</p><h4 id="HTML5相关了解"><a href="#HTML5相关了解" class="headerlink" title="HTML5相关了解"></a>HTML5相关了解</h4><ol><li>网页 = 结构 + 表现 + 行为<br>HTML5 = <font color="red">HTML</font> + <font color="red">CSS</font> + <font color="red">JavaScript</font><br><font color="red">HTML</font>：超文本标记语言，用于构建网页的结构。<br><font color="red">CSS</font>：层叠样式表，用于处理网页标签的样式。<br><font color="red">JavaScript</font>：一种脚本语言，用于处理网页中标签的行为。</li><li>&lt;!doctype html&gt;<br>doctype是document type(文档类型的缩写),主要声明页面的文档类型,告知浏览器当前的类型是html,从而以合适的方式加载。当前使用的是html5.0版本，声明是：&lt;!doctype html&gt;<br>扩展：html4.01文档声明类型主要如下：过渡定义类型、严格定义类型、框架定义类型。<a id="more"></a></li><li>meta元信息<br>meta是用来在html文档中模拟http的响应头报文，meta属性有两种：name和http-equiv。在此主要介绍属性对应常用的子属性。<br>name属性：<br>&emsp;generator：代码的生成工具。<br>&emsp;keywords：关键词，用于搜索引擎<br>&emsp;description：描述信息，介绍网页的主要内容是什么<br>&emsp;author：作者<br>&emsp;copyright：版权所属<br>&emsp;robots：机器人，用于向搜索引擎说明文件的检索方式，即哪些页面需要索引，哪些不需要。常用值：all、none、index、noindex、follow、nofollow。<br>http-equiv属性:<br>&emsp;content-type：设置网页内容的编码类型<br>&emsp;content-language：说明网页所使用的语言<br>&emsp;refresh：用于定时让网页在指定时间内刷新或跳转到其他页面。<br>&emsp;expires：设定网页的到期时间，一旦过期需要到服务器重新调用，必须是GMT时间格式<br>&emsp;set-cookie：设置cookie的过期时间<br>&emsp;windows-target：告知网页在当前窗口以独立页面显示，可以防止页面被当做frame页调用，即防止钓鱼。</li></ol>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;出来参加工作也有一段时间了，公司特意为it员工买了书，虽然html已是很熟悉了，但是重新看一遍还是颇有收获的。&lt;/p&gt;
+&lt;h4 id=&quot;网站开发流程&quot;&gt;&lt;a href=&quot;#网站开发流程&quot; class=&quot;headerlink&quot; title=&quot;网站开发流程&quot;&gt;&lt;/a&gt;网站开发流程&lt;/h4&gt;&lt;p&gt;一个网站从需求的产生到广为人知，大致需要经历5个阶段，即网站需求分析、网站技术分析、网站页面策划、网站设计开发、网站测试改进。前端开发人员负责后两个阶段：开发和测试。&lt;/p&gt;
+&lt;h4 id=&quot;HTML5相关了解&quot;&gt;&lt;a href=&quot;#HTML5相关了解&quot; class=&quot;headerlink&quot; title=&quot;HTML5相关了解&quot;&gt;&lt;/a&gt;HTML5相关了解&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;网页 = 结构 + 表现 + 行为&lt;br&gt;HTML5 = &lt;font color=&quot;red&quot;&gt;HTML&lt;/font&gt; + &lt;font color=&quot;red&quot;&gt;CSS&lt;/font&gt; + &lt;font color=&quot;red&quot;&gt;JavaScript&lt;/font&gt;&lt;br&gt;&lt;font color=&quot;red&quot;&gt;HTML&lt;/font&gt;：超文本标记语言，用于构建网页的结构。&lt;br&gt;&lt;font color=&quot;red&quot;&gt;CSS&lt;/font&gt;：层叠样式表，用于处理网页标签的样式。&lt;br&gt;&lt;font color=&quot;red&quot;&gt;JavaScript&lt;/font&gt;：一种脚本语言，用于处理网页中标签的行为。&lt;/li&gt;
+&lt;li&gt;&amp;lt;!doctype html&amp;gt;&lt;br&gt;doctype是document type(文档类型的缩写),主要声明页面的文档类型,告知浏览器当前的类型是html,从而以合适的方式加载。当前使用的是html5.0版本，声明是：&amp;lt;!doctype html&amp;gt;&lt;br&gt;扩展：html4.01文档声明类型主要如下：过渡定义类型、严格定义类型、框架定义类型。
+    
+    </summary>
+    
+      <category term="HTML5" scheme="http://molb.me/categories/HTML5/"/>
+    
+    
+      <category term="Web" scheme="http://molb.me/tags/Web/"/>
+    
+      <category term="HTML5" scheme="http://molb.me/tags/HTML5/"/>
     
   </entry>
   
@@ -542,13 +542,13 @@
       <category term="Ajax" scheme="http://molb.me/categories/Ajax/"/>
     
     
+      <category term="ES6" scheme="http://molb.me/tags/ES6/"/>
+    
       <category term="Ajax" scheme="http://molb.me/tags/Ajax/"/>
     
       <category term="跨域" scheme="http://molb.me/tags/%E8%B7%A8%E5%9F%9F/"/>
     
       <category term="Promise" scheme="http://molb.me/tags/Promise/"/>
-    
-      <category term="ES6" scheme="http://molb.me/tags/ES6/"/>
     
   </entry>
   

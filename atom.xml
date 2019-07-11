@@ -542,13 +542,13 @@
       <category term="Ajax" scheme="http://molb.me/categories/Ajax/"/>
     
     
-      <category term="ES6" scheme="http://molb.me/tags/ES6/"/>
-    
       <category term="Ajax" scheme="http://molb.me/tags/Ajax/"/>
     
       <category term="跨域" scheme="http://molb.me/tags/%E8%B7%A8%E5%9F%9F/"/>
     
       <category term="Promise" scheme="http://molb.me/tags/Promise/"/>
+    
+      <category term="ES6" scheme="http://molb.me/tags/ES6/"/>
     
   </entry>
   
